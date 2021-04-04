@@ -21,6 +21,7 @@ namespace UmlDesigner
         bool IsClicked = false;
         Point point;
         Point point1;
+        List<TwoPoints> twoPoints = new List<TwoPoints> { };
 
         public Form1()
         {
@@ -58,11 +59,6 @@ namespace UmlDesigner
             
         }
 
-        private void DrowArrow (object sender, MouseEventArgs e)
-        {
-            
-        }
-
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             IsClicked = true;
@@ -73,6 +69,7 @@ namespace UmlDesigner
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
            IsClicked = false;
+            twoPoints.Add(new TwoPoints(new Point(point.X,point.Y), new Point(point1.X, point1.Y)));
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -94,6 +91,10 @@ namespace UmlDesigner
             Pen pen = new Pen(Color.Black);
 
             e.Graphics.DrawLine(pen, new Point(point.X, point.Y), new Point(point1.X, point1.Y));
+            foreach(var p in twoPoints)
+            {
+                e.Graphics.DrawLine(pen, p.X, p.Y);
+            }
         }
     }
 }
