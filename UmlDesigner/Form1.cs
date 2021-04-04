@@ -18,7 +18,10 @@ namespace UmlDesigner
         Bitmap bitmap;
         Graphics graphics;
         Pen pen;
-        private bool Flag;
+        bool IsClicked = false;
+        Point point;
+        Point point1;
+
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +37,7 @@ namespace UmlDesigner
 
        private void DrowLine (object sender, MouseEventArgs e)
         {
-            if (Flag)
+            if (IsClicked)
             {
                 for (int i = 0; i < 10; i++)
                 {
@@ -50,14 +53,47 @@ namespace UmlDesigner
             }
         }
 
+        private void button_Connection(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void DrowArrow (object sender, MouseEventArgs e)
+        {
+            
+        }
+
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            Flag = true;
+            IsClicked = true;
+            point = e.Location;
+
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-           Flag = false;
+           IsClicked = false;
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (IsClicked)
+            {
+                point1 = e.Location;
+                pictureBox1.Invalidate();
+            }
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            buttonConnection_Paint(sender, e);
+        }
+
+        private void buttonConnection_Paint(object sender, PaintEventArgs e)
+        {
+            Pen pen = new Pen(Color.Black);
+
+            e.Graphics.DrawLine(pen, new Point(point.X, point.Y), new Point(point1.X, point1.Y));
         }
     }
 }
