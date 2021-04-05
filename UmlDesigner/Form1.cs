@@ -36,7 +36,7 @@ namespace UmlDesigner
             pictureBox1.Image = bitmap;
         }
 
-       private void DrowLine (object sender, MouseEventArgs e)
+       private void DrowBrush (object sender, MouseEventArgs e)
         {
             if (IsClicked)
             {
