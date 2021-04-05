@@ -54,11 +54,6 @@ namespace UmlDesigner
             }
         }
 
-        private void button_Connection(object sender, EventArgs e)
-        {
-            
-        }
-
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             IsClicked = true;
@@ -83,17 +78,27 @@ namespace UmlDesigner
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            buttonConnection_Paint(sender, e);
+            if (sender is )
+            {
+                DrowLines_Paint(sender, e);
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
 
-        private void buttonConnection_Paint(object sender, PaintEventArgs e)
+        private void DrowLines_Paint(object sender, PaintEventArgs e)
         {
             Pen pen = new Pen(Color.Black);
 
-            e.Graphics.DrawLine(pen, new Point(point.X, point.Y), new Point(point1.X, point1.Y));
-            foreach(var p in twoPoints)
+            if(sender is Button)
             {
-                e.Graphics.DrawLine(pen, p.X, p.Y);
+                e.Graphics.DrawLine(pen, new Point(point.X, point.Y), new Point(point1.X, point1.Y));
+                foreach(var p in twoPoints)
+                {
+                    e.Graphics.DrawLine(pen, p.X, p.Y);
+                }
             }
         }
     }
