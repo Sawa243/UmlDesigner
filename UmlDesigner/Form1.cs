@@ -21,6 +21,7 @@ namespace UmlDesigner
         bool IsClicked = false;
         Point point;
         Point point1;
+        double Angle = 1.3;
         List<TwoPoints> twoPoints = new List<TwoPoints> { };
 
         public Form1()
@@ -78,27 +79,21 @@ namespace UmlDesigner
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            if (sender is )
-            {
-                DrowLines_Paint(sender, e);
-            }
-            else
-            {
-                throw new Exception();
-            }
+            
+            DrowLines_Paint(sender, e);
         }
 
         private void DrowLines_Paint(object sender, PaintEventArgs e)
         {
             Pen pen = new Pen(Color.Black);
 
-            if(sender is Button)
+            //double vect = Math.Atan2(point.X - point1.X, point.Y - point1.Y);
+
+            e.Graphics.DrawLine(pen, new Point(point.X, point.Y), new Point(point1.X, point1.Y));
+            //e.Graphics.DrawLine(pen, new Point(point.X, point.Y), new Point(Convert.ToInt32(point1.X + 10 * Math.Sin(0.2 + vect)), (Convert.ToInt32(point1.X + 10 * Math.Cos(0.2 + vect))));
+            foreach (var p in twoPoints)
             {
-                e.Graphics.DrawLine(pen, new Point(point.X, point.Y), new Point(point1.X, point1.Y));
-                foreach(var p in twoPoints)
-                {
-                    e.Graphics.DrawLine(pen, p.X, p.Y);
-                }
+                e.Graphics.DrawLine(pen, p.X, p.Y);
             }
         }
     }

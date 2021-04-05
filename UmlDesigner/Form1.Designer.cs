@@ -45,6 +45,7 @@ namespace UmlDesigner
             this.pictureBox1.Size = new System.Drawing.Size(1097, 546);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
@@ -58,6 +59,10 @@ namespace UmlDesigner
             this.buttonConnection.TabIndex = 1;
             this.buttonConnection.Text = "Arrow";
             this.buttonConnection.UseVisualStyleBackColor = true;
+            this.buttonConnection.Paint += new System.Windows.Forms.PaintEventHandler(this.DrowLines_Paint);
+            this.buttonConnection.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.buttonConnection.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.buttonConnection.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // Form1
             // 
