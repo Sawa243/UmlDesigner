@@ -18,10 +18,11 @@ namespace UmlDesigner
         Bitmap bitmap;
         Graphics graphics;
         Pen pen;
-        bool IsClicked = false;
         Point point;
         Point point1;
-        double Angle = 1.3;
+        //double Angle = 1.3;
+        bool IsClicked = false;
+        string actual = "";
         List<TwoPoints> twoPoints = new List<TwoPoints> { };
 
         public Form1()
@@ -79,8 +80,10 @@ namespace UmlDesigner
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            
-            DrowLines_Paint(sender, e);
+            if (actual == "Lines")
+            {
+                DrowLines_Paint(sender, e);
+            }
         }
 
         private void DrowLines_Paint(object sender, PaintEventArgs e)
@@ -95,6 +98,11 @@ namespace UmlDesigner
             {
                 e.Graphics.DrawLine(pen, p.X, p.Y);
             }
+        }
+
+        private void buttonConnection_Click(object sender, EventArgs e)
+        {
+            actual = "Lines";
         }
     }
 }

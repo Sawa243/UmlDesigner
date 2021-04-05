@@ -59,6 +59,7 @@ namespace UmlDesigner
             this.buttonConnection.TabIndex = 1;
             this.buttonConnection.Text = "Arrow";
             this.buttonConnection.UseVisualStyleBackColor = true;
+            this.buttonConnection.Click += new System.EventHandler(this.buttonConnection_Click);
             this.buttonConnection.Paint += new System.Windows.Forms.PaintEventHandler(this.DrowLines_Paint);
             this.buttonConnection.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.buttonConnection.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
