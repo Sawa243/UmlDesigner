@@ -15,13 +15,14 @@ namespace UmlDesigner
 {
     public partial class Form1 : Form
     {
-        Bitmap bitmap;
-        Graphics graphics;
-        Pen pen;
-        Point point;
-        Point point1;
+        Bitmap _mainBitmap;
+        Bitmap _tmpBitmap;
+        Graphics _graphics;
+        Pen _pen;
+        Point _point;
+        Point _point1;
         //double Angle = 1.3;
-        bool IsClicked = false;
+        bool _IsClicked = false;
         string actual = "";
         List<TwoPoints> twoPoints = new List<TwoPoints> { };
 
@@ -32,15 +33,15 @@ namespace UmlDesigner
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            graphics = Graphics.FromImage(bitmap);
-            graphics.Clear(Color.White);
-            pictureBox1.Image = bitmap;
+            _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            _graphics = Graphics.FromImage(_mainBitmap);
+            _graphics.Clear(Color.White);
+            pictureBox1.Image = _mainBitmap;
         }
 
        private void DrowBrush (object sender, MouseEventArgs e)
         {
-            if (IsClicked)
+            if (_IsClicked)
             {
                 for (int i = 0; i < 10; i++)
                 {
@@ -48,32 +49,33 @@ namespace UmlDesigner
                     {
                         if (pictureBox1.Width > i + e.X && pictureBox1.Height > j + e.Y)
                         {
-                            bitmap.SetPixel(i + e.X, j + e.Y, Color.Red);
+                            _mainBitmap.SetPixel(i + e.X, j + e.Y, Color.Red);
                         }
                     }
                 }
-                pictureBox1.Image = bitmap;
+                pictureBox1.Image = _mainBitmap;
             }
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            IsClicked = true;
-            point = e.Location;
+            _IsClicked = true;
+            _point = e.Location;
 
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-           IsClicked = false;
-            twoPoints.Add(new TwoPoints(new Point(point.X,point.Y), new Point(point1.X, point1.Y)));
+           _IsClicked = false;
+            twoPoints.Add(new TwoPoints(new Point(_point.X,_point.Y), new Point(_point1.X, _point1.Y)));
+            _mainBitmap = _tmpBitmap;
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (IsClicked)
+            if (_IsClicked)
             {
-                point1 = e.Location;
+                _point1 = e.Location;
                 pictureBox1.Invalidate();
             }
         }
@@ -92,7 +94,7 @@ namespace UmlDesigner
 
             //double vect = Math.Atan2(point.X - point1.X, point.Y - point1.Y);
 
-            e.Graphics.DrawLine(pen, new Point(point.X, point.Y), new Point(point1.X, point1.Y));
+            e.Graphics.DrawLine(pen, new Point(_point.X, _point.Y), new Point(_point1.X, _point1.Y));
             //e.Graphics.DrawLine(pen, new Point(point.X, point.Y), new Point(Convert.ToInt32(point1.X + 10 * Math.Sin(0.2 + vect)), (Convert.ToInt32(point1.X + 10 * Math.Cos(0.2 + vect))));
             foreach (var p in twoPoints)
             {
