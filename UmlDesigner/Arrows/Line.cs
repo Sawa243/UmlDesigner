@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BtnProj.Arrows
+namespace UmlDesigner.Arrows
 {
     public class Line : AbstractArrow
     {
