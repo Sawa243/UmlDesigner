@@ -107,10 +107,10 @@ namespace UmlDesigner
 
         private void Angle(object sender, MouseEventArgs e)
         {
-            pen = new Pen(Color.Blue, 6);
-            graphics = Graphics.FromImage(bitmap);
-            graphics.DrawLine(pen, 1, 1, 20, 20);
-            graphics.DrawLine(pen, 20, 20, 1, 40);
+            _pen = new Pen(Color.Blue, 6);
+            _graphics = Graphics.FromImage(_mainBitmap);
+            _graphics.DrawLine(_pen, 1, 1, 20, 20);
+            _graphics.DrawLine(_pen, 20, 20, 1, 40);
         }
 
         private void AddLine()
@@ -120,9 +120,9 @@ namespace UmlDesigner
             int y1;
             int y2;
 
-            pen = new Pen(Color.Blue, 6);
-            graphics = Graphics.FromImage(bitmap);
-            graphics.DrawLine(pen, 1, 1, 20, 20);
+            _pen = new Pen(Color.Blue, 6);
+            _graphics = Graphics.FromImage(_mainBitmap);
+            _graphics.DrawLine(_pen, 1, 1, 20, 20);
         }
     }
 }
