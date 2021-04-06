@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +23,6 @@ namespace UmlDesigner
         //double Angle = 1.3;
         bool _IsClicked = false;
         string actual = "";
-        List<TwoPoints> twoPoints = new List<TwoPoints> { };
 
         public Form1()
         {
