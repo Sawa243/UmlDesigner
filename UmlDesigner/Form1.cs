@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +14,16 @@ namespace UmlDesigner
 {
     public partial class Form1 : Form
     {
-        Bitmap bitmap;
-        Graphics graphics;
-        Pen pen;
-        private bool Flag;
+        Bitmap _mainBitmap;
+        Bitmap _tmpBitmap;
+        Graphics _graphics;
+        Pen _pen;
+        Point _point;
+        Point _point1;
+        //double Angle = 1.3;
+        bool _IsClicked = false;
+        string actual = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -26,15 +31,15 @@ namespace UmlDesigner
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            graphics = Graphics.FromImage(bitmap);
-            graphics.Clear(Color.White);
-            pictureBox1.Image = bitmap;
+            _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            _graphics = Graphics.FromImage(_mainBitmap);
+            _graphics.Clear(Color.White);
+            pictureBox1.Image = _mainBitmap;
         }
 
-       private void DrowLine (object sender, MouseEventArgs e)
+       private void DrowBrush (object sender, MouseEventArgs e)
         {
-            if (Flag)
+            if (_IsClicked)
             {
                 for (int i = 0; i < 10; i++)
                 {
@@ -42,22 +47,82 @@ namespace UmlDesigner
                     {
                         if (pictureBox1.Width > i + e.X && pictureBox1.Height > j + e.Y)
                         {
-                            bitmap.SetPixel(i + e.X, j + e.Y, Color.Red);
+                            _mainBitmap.SetPixel(i + e.X, j + e.Y, Color.Red);
                         }
                     }
                 }
-                pictureBox1.Image = bitmap;
+                pictureBox1.Image = _mainBitmap;
             }
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            Flag = true;
+            _IsClicked = true;
+            _point = e.Location;
+            _point1 = e.Location;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-           Flag = false;
+           _IsClicked = false;
+            _point1 = e.Location;
+            _mainBitmap = _tmpBitmap;
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_IsClicked)
+            {
+                _point1 = e.Location;
+                pictureBox1.Invalidate();
+            }
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            _graphics = Graphics.FromImage(_tmpBitmap);
+
+            if (actual == "Lines")
+            {
+                DrawLines_Paint(sender, e);
+
+            }
+            pictureBox1.Image = _tmpBitmap;
+            GC.Collect();
+
+        }
+
+        private void DrawLines_Paint(object sender, PaintEventArgs e)
+        {
+            Pen pen = new Pen(Color.Black);
+
+            _graphics.DrawLine(pen, new Point(_point.X, _point.Y), new Point(_point1.X, _point1.Y));
+        }
+
+        private void buttonLine_Click(object sender, EventArgs e)
+        {
+            actual = "Lines";
+        }
+
+        private void Angle(object sender, MouseEventArgs e)
+        {
+            pen = new Pen(Color.Blue, 6);
+            graphics = Graphics.FromImage(bitmap);
+            graphics.DrawLine(pen, 1, 1, 20, 20);
+            graphics.DrawLine(pen, 20, 20, 1, 40);
+        }
+
+        private void AddLine()
+        {
+            int x1;
+            int x2;
+            int y1;
+            int y2;
+
+            pen = new Pen(Color.Blue, 6);
+            graphics = Graphics.FromImage(bitmap);
+            graphics.DrawLine(pen, 1, 1, 20, 20);
         }
     }
 }
