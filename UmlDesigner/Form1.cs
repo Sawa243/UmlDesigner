@@ -102,7 +102,7 @@ namespace UmlDesigner
             _graphics.DrawLine(pen, new Point(_point.X, _point.Y), new Point(_point1.X, _point1.Y));
         }
 
-        private void buttonConnection_Click(object sender, EventArgs e)
+        private void buttonLine_Click(object sender, EventArgs e)
         {
             actual = "Lines";
         }

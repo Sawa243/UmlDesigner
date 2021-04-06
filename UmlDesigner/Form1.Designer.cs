@@ -31,7 +31,7 @@ namespace UmlDesigner
         {
             this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonConnection = new System.Windows.Forms.Button();
+            this.buttonLine = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -50,27 +50,27 @@ namespace UmlDesigner
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // buttonConnection
+            // buttonLine
             // 
-            this.buttonConnection.Location = new System.Drawing.Point(14, 14);
-            this.buttonConnection.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonConnection.Name = "buttonConnection";
-            this.buttonConnection.Size = new System.Drawing.Size(142, 46);
-            this.buttonConnection.TabIndex = 1;
-            this.buttonConnection.Text = "Arrow";
-            this.buttonConnection.UseVisualStyleBackColor = true;
-            this.buttonConnection.Click += new System.EventHandler(this.buttonConnection_Click);
-            this.buttonConnection.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawLines_Paint);
-            this.buttonConnection.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            this.buttonConnection.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            this.buttonConnection.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            this.buttonLine.Location = new System.Drawing.Point(14, 14);
+            this.buttonLine.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonLine.Name = "buttonLine";
+            this.buttonLine.Size = new System.Drawing.Size(142, 46);
+            this.buttonLine.TabIndex = 1;
+            this.buttonLine.Text = "Line";
+            this.buttonLine.UseVisualStyleBackColor = true;
+            this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
+            this.buttonLine.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawLines_Paint);
+            this.buttonLine.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.buttonLine.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.buttonLine.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1342, 647);
-            this.Controls.Add(this.buttonConnection);
+            this.Controls.Add(this.buttonLine);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
@@ -85,7 +85,7 @@ namespace UmlDesigner
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button buttonConnection;
+        private System.Windows.Forms.Button buttonLine;
         private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
