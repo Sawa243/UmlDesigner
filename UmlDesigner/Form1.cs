@@ -29,6 +29,7 @@ namespace UmlDesigner
         private void Form1_Load(object sender, EventArgs e)
         {
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            _tmpBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
@@ -112,6 +113,11 @@ namespace UmlDesigner
             _pen = new Pen(Color.Blue, 6);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.DrawLine(_pen, 1, 1, 20, 20);
+        }
+
+        private void buttonAssociationArrow_Click(object sender, EventArgs e)
+        {
+            _crntArrow = new AssociationArrow();
         }
     }
 }
