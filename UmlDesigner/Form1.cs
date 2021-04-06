@@ -104,5 +104,25 @@ namespace UmlDesigner
         {
             actual = "Lines";
         }
+
+        private void Angle(object sender, MouseEventArgs e)
+        {
+            pen = new Pen(Color.Blue, 6);
+            graphics = Graphics.FromImage(bitmap);
+            graphics.DrawLine(pen, 1, 1, 20, 20);
+            graphics.DrawLine(pen, 20, 20, 1, 40);
+        }
+
+        private void AddLine()
+        {
+            int x1;
+            int x2;
+            int y1;
+            int y2;
+
+            pen = new Pen(Color.Blue, 6);
+            graphics = Graphics.FromImage(bitmap);
+            graphics.DrawLine(pen, 1, 1, 20, 20);
+        }
     }
 }
