@@ -61,13 +61,13 @@ namespace UmlDesigner
         {
             _IsClicked = true;
             _point = e.Location;
-
+            _point1 = e.Location;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
            _IsClicked = false;
-            twoPoints.Add(new TwoPoints(new Point(_point.X,_point.Y), new Point(_point1.X, _point1.Y)));
+            _point1 = e.Location;
             _mainBitmap = _tmpBitmap;
         }
 
@@ -82,24 +82,24 @@ namespace UmlDesigner
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
+            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            _graphics = Graphics.FromImage(_tmpBitmap);
+
             if (actual == "Lines")
             {
-                DrowLines_Paint(sender, e);
+                DrawLines_Paint(sender, e);
+
             }
+            pictureBox1.Image = _tmpBitmap;
+            GC.Collect();
+
         }
 
-        private void DrowLines_Paint(object sender, PaintEventArgs e)
+        private void DrawLines_Paint(object sender, PaintEventArgs e)
         {
             Pen pen = new Pen(Color.Black);
 
-            //double vect = Math.Atan2(point.X - point1.X, point.Y - point1.Y);
-
-            e.Graphics.DrawLine(pen, new Point(_point.X, _point.Y), new Point(_point1.X, _point1.Y));
-            //e.Graphics.DrawLine(pen, new Point(point.X, point.Y), new Point(Convert.ToInt32(point1.X + 10 * Math.Sin(0.2 + vect)), (Convert.ToInt32(point1.X + 10 * Math.Cos(0.2 + vect))));
-            foreach (var p in twoPoints)
-            {
-                e.Graphics.DrawLine(pen, p.X, p.Y);
-            }
+            _graphics.DrawLine(pen, new Point(_point.X, _point.Y), new Point(_point1.X, _point1.Y));
         }
 
         private void buttonConnection_Click(object sender, EventArgs e)
