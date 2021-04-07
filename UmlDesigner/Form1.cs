@@ -18,6 +18,7 @@ namespace UmlDesigner
         Graphics _graphics;
         Pen _pen;
         AbstractArrow _crntArrow;
+        PaintBrush _brush;
 
         bool _IsClicked = false;
 
@@ -32,24 +33,6 @@ namespace UmlDesigner
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
-        }
-
-       private void DrowBrush (object sender, MouseEventArgs e)
-        {
-            if (_IsClicked)
-            {
-                for (int i = 0; i < 10; i++)
-                {
-                    for (int j = 0; j < 10; j++)
-                    {
-                        if (pictureBox1.Width > i + e.X && pictureBox1.Height > j + e.Y)
-                        {
-                            _mainBitmap.SetPixel(i + e.X, j + e.Y, Color.Red);
-                        }
-                    }
-                }
-                pictureBox1.Image = _mainBitmap;
-            }
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -83,6 +66,13 @@ namespace UmlDesigner
                 _crntArrow.EndPoint = e.Location;
                 _crntArrow.Draw(_graphics);
             }
+            if (_IsClicked &&
+              (_brush != null))
+            {
+                _brush.point = e.Location;
+                _brush.Draw(_graphics, _mainBitmap);
+            }
+
             pictureBox1.Image = _tmpBitmap;
             GC.Collect();
         }
@@ -92,24 +82,10 @@ namespace UmlDesigner
             _crntArrow = new Line();
         }
 
-        private void Angle(object sender, MouseEventArgs e)
+        private void buttonBrush_Click(object sender, EventArgs e)
         {
-            _pen = new Pen(Color.Blue, 6);
-            _graphics = Graphics.FromImage(_mainBitmap);
-            _graphics.DrawLine(_pen, 1, 1, 20, 20);
-            _graphics.DrawLine(_pen, 20, 20, 1, 40);
-        }
-
-        private void AddLine()
-        {
-            int x1;
-            int x2;
-            int y1;
-            int y2;
-
-            _pen = new Pen(Color.Blue, 6);
-            _graphics = Graphics.FromImage(_mainBitmap);
-            _graphics.DrawLine(_pen, 1, 1, 20, 20);
+            _brush = new PaintBrush();
+            _crntArrow = null;
         }
     }
 }
