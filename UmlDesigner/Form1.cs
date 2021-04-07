@@ -87,5 +87,10 @@ namespace UmlDesigner
             _brush = new PaintBrush();
             _crntArrow = null;
         }
+
+        private void buttonShape_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
