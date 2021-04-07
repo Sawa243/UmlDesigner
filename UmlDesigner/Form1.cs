@@ -74,19 +74,17 @@ namespace UmlDesigner
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
+            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            _graphics = Graphics.FromImage(_tmpBitmap);
+
             if (_IsClicked&&
                 (_crntArrow != null))
             {
-                _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-                _graphics = Graphics.FromImage(_tmpBitmap);
-
                 _crntArrow.EndPoint = e.Location;
-
                 _crntArrow.Draw(_graphics);
-
-                pictureBox1.Image = _tmpBitmap;
-                GC.Collect();
             }
+            pictureBox1.Image = _tmpBitmap;
+            GC.Collect();
         }
 
         private void buttonLine_Click(object sender, EventArgs e)
