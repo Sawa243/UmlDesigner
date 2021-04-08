@@ -25,6 +25,7 @@ namespace UmlDesigner
         public Form1()
         {
             InitializeComponent();
+            CustomizeDesign();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -86,6 +87,35 @@ namespace UmlDesigner
         {
             _brush = new PaintBrush();
             _crntArrow = null;
+        }
+
+        private void CustomizeDesign()
+        {
+            arrowsSubMenu.Visible = false;
+        }
+
+        private void HideSubMenu()
+        {
+            if (arrowsSubMenu.Visible)
+                arrowsSubMenu.Visible = false;
+        }
+
+        private void ShowSubMenu(Panel subMenu)
+        {
+            if (subMenu.Visible == false)
+            {
+                HideSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+            {
+                subMenu.Visible = false;
+            }
+        }
+
+        private void arrowsButton_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(arrowsSubMenu);
         }
     }
 }
