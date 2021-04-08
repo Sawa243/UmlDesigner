@@ -9,14 +9,13 @@ namespace UmlDesigner.Shapes
 {
     public class Shape
     {
-        protected Pen _pen;
+        public Pen pen = new Pen(Color.Green, 5);
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
-
+      
         public void Draw(Graphics graphics)
         {
-            _pen = new Pen(Color.Green, 5);
-            graphics.DrawPolygon(_pen, GetPoints().ToArray());
+            graphics.DrawPolygon(pen, GetPoints().ToArray());
         }
 
         protected List<Point> GetPoints()

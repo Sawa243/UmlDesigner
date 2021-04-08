@@ -9,17 +9,17 @@ namespace UmlDesigner
 {
     public class PaintBrush
     {
-        protected Pen _pen;
+        public Pen pen;
         public Point point { get; set; }
 
         public PaintBrush()
         {
-            _pen = new Pen(Color.Red, 44);
+            pen = new Pen(Color.Red, 6);
         }
 
         public void Draw(Graphics graphics, Bitmap bitmap)
         {
-            bitmap.SetPixel(point.X, point.Y, _pen.Color);
+            bitmap.SetPixel(point.X, point.Y, pen.Color);
         }
 
     }

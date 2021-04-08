@@ -17,7 +17,6 @@ namespace UmlDesigner
         Bitmap _mainBitmap;
         Bitmap _tmpBitmap;
         Graphics _graphics;
-        Pen _pen;
         AbstractArrow _curentArrow;
         PaintBrush _brush;
         Shape _shape;
@@ -120,7 +119,18 @@ namespace UmlDesigner
         private void buttonCollor_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
-            _curentArrow.pen = new Pen(colorDialog1.Color, 3);
+            if (_curentArrow != null)
+            {
+                _curentArrow.pen = new Pen(colorDialog1.Color, 10);
+            }
+            if (_shape != null)
+            {
+                _shape.pen = new Pen(colorDialog1.Color, 15);
+            }
+            if (_brush != null)
+            {
+                _brush.pen = new Pen(colorDialog1.Color, 10);
+            }
         }
     }
 }
