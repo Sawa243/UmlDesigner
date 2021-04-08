@@ -58,7 +58,7 @@ namespace UmlDesigner
             this.buttonLine.TabIndex = 1;
             this.buttonLine.Text = "Line";
             this.buttonLine.UseVisualStyleBackColor = true;
-            this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
+            //this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
             this.buttonLine.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.buttonLine.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.buttonLine.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
