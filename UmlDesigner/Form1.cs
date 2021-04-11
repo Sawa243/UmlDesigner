@@ -20,7 +20,6 @@ namespace UmlDesigner
         AbstractArrow _curentArrow;
         PaintBrush _brush;
         Shape _shape;
-
         bool _IsClicked = false;
 
         public Form1()
@@ -49,7 +48,6 @@ namespace UmlDesigner
                 _shape.StartPoint = e.Location;
                 _shape.EndPoint = e.Location;
             }
-
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -119,17 +117,26 @@ namespace UmlDesigner
         private void buttonCollor_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
+            EditSizeAndColor();
+        }
+
+        private void trackBarSize_Scroll(object sender, EventArgs e)
+        {
+            EditSizeAndColor();
+        }
+        private void EditSizeAndColor ()
+        {
             if (_curentArrow != null)
             {
-                _curentArrow.pen = new Pen(colorDialog1.Color, 10);
+                _curentArrow.pen = new Pen(colorDialog1.Color, trackBarSize.Value);
             }
             if (_shape != null)
             {
-                _shape.pen = new Pen(colorDialog1.Color, 15);
+                _shape.pen = new Pen(colorDialog1.Color, trackBarSize.Value);
             }
             if (_brush != null)
             {
-                _brush.pen = new Pen(colorDialog1.Color, 10);
+                _brush.pen = new Pen(colorDialog1.Color, trackBarSize.Value);
             }
         }
     }

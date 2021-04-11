@@ -35,7 +35,9 @@ namespace UmlDesigner
             this.buttonShape = new System.Windows.Forms.Button();
             this.buttonColor = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.trackBarSize = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSize)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -98,11 +100,24 @@ namespace UmlDesigner
             this.buttonColor.UseVisualStyleBackColor = true;
             this.buttonColor.Click += new System.EventHandler(this.buttonCollor_Click);
             // 
+            // trackBarSize
+            // 
+            this.trackBarSize.Location = new System.Drawing.Point(847, 12);
+            this.trackBarSize.Maximum = 20;
+            this.trackBarSize.Minimum = 5;
+            this.trackBarSize.Name = "trackBarSize";
+            this.trackBarSize.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBarSize.Size = new System.Drawing.Size(45, 104);
+            this.trackBarSize.TabIndex = 5;
+            this.trackBarSize.Value = 5;
+            this.trackBarSize.Scroll += new System.EventHandler(this.trackBarSize_Scroll);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 421);
+            this.Controls.Add(this.trackBarSize);
             this.Controls.Add(this.buttonColor);
             this.Controls.Add(this.buttonShape);
             this.Controls.Add(this.buttonBrush);
@@ -112,7 +127,9 @@ namespace UmlDesigner
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSize)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -124,6 +141,7 @@ namespace UmlDesigner
         private System.Windows.Forms.Button buttonShape;
         private System.Windows.Forms.Button buttonColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.TrackBar trackBarSize;
     }
 }
 

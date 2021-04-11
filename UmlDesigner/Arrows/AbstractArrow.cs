@@ -23,6 +23,5 @@ namespace UmlDesigner.Arrows
             points.Add(EndPoint);
             return points;
         }
-        
     }
 }

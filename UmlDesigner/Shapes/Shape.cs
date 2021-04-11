@@ -21,14 +21,11 @@ namespace UmlDesigner.Shapes
         protected List<Point> GetPoints()
         {
             List<Point> points = new List<Point>();
-
             points.Add(StartPoint);
             points.Add(new Point(StartPoint.X, EndPoint.Y));
             points.Add(EndPoint);
             points.Add(new Point(EndPoint.X, StartPoint.Y));
-
             return points;
         }
-
     }
 }

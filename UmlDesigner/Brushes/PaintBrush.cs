@@ -21,6 +21,5 @@ namespace UmlDesigner
         {
             bitmap.SetPixel(point.X, point.Y, pen.Color);
         }
-
     }
 }
