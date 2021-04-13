@@ -63,9 +63,9 @@ namespace UmlDesigner.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2222 {
+        internal static System.Drawing.Bitmap _000 {
             get {
-                object obj = ResourceManager.GetObject("2222", resourceCulture);
+                object obj = ResourceManager.GetObject("000", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace UmlDesigner.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _2345678 {
+        internal static System.Drawing.Bitmap _456789_svg {
             get {
-                object obj = ResourceManager.GetObject("2345678", resourceCulture);
+                object obj = ResourceManager.GetObject("456789.svg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace UmlDesigner.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _55 {
+        internal static System.Drawing.Bitmap _48535680_whtite_paper_pattern_texture_abstract_horizontal_vignette {
             get {
-                object obj = ResourceManager.GetObject("55", resourceCulture);
+                object obj = ResourceManager.GetObject("48535680-whtite-paper-pattern-texture-abstract-horizontal-vignette", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace UmlDesigner.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap jghjghj {
+        internal static System.Drawing.Bitmap fonstola_ru_72341 {
             get {
-                object obj = ResourceManager.GetObject("jghjghj", resourceCulture);
+                object obj = ResourceManager.GetObject("fonstola.ru-72341", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,39 +103,9 @@ namespace UmlDesigner.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap jkhjk {
+        internal static System.Drawing.Bitmap Uml_classes_edn1_svg {
             get {
-                object obj = ResourceManager.GetObject("jkhjk", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap jkhjk1 {
-            get {
-                object obj = ResourceManager.GetObject("jkhjk1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap kjljkl {
-            get {
-                object obj = ResourceManager.GetObject("kjljkl", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap kjljkl1 {
-            get {
-                object obj = ResourceManager.GetObject("kjljkl1", resourceCulture);
+                object obj = ResourceManager.GetObject("Uml_classes_edn1.svg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +116,36 @@ namespace UmlDesigner.Properties {
         internal static System.Drawing.Bitmap Uml_classes_en_svg {
             get {
                 object obj = ResourceManager.GetObject("Uml_classes_en.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Uml_classes_en2_svg {
+            get {
+                object obj = ResourceManager.GetObject("Uml_classes_en2.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Uml_classes_en3_svg {
+            get {
+                object obj = ResourceManager.GetObject("Uml_classes_en3.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Uml_classes_en4_svg {
+            get {
+                object obj = ResourceManager.GetObject("Uml_classes_en4.svg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

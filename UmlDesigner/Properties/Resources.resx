@@ -118,31 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="kjljkl1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kjljkl1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Uml_classes_en2.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Uml_classes_en2.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kjljkl" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kjljkl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Uml_classes_edn1.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Uml_classes_edn1.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="2222" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2222.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Uml_classes_en4.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Uml_classes_en4.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="48535680-whtite-paper-pattern-texture-abstract-horizontal-vignette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\48535680-whtite-paper-pattern-texture-abstract-horizontal-vignette.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Uml_classes_en.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Uml_classes_en.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="jkhjk1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\jkhjk1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fonstola.ru-72341" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fonstola.ru-72341.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="jkhjk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\jkhjk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Uml_classes_en3.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Uml_classes_en3.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="jghjghj" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\jghjghj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="456789.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\456789.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="2345678" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2345678.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="55" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\55.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\000.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

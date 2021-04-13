@@ -92,12 +92,15 @@ namespace UmlDesigner
         private void CustomizeDesign()
         {
             arrowsSubMenu.Visible = false;
+            formsPanel.Visible = false;
         }
 
         private void HideSubMenu()
         {
             if (arrowsSubMenu.Visible)
                 arrowsSubMenu.Visible = false;
+            if (formsPanel.Visible)
+                formsPanel.Visible = false;
         }
 
         private void ShowSubMenu(Panel subMenu)
@@ -116,6 +119,11 @@ namespace UmlDesigner
         private void arrowsButton_Click(object sender, EventArgs e)
         {
             ShowSubMenu(arrowsSubMenu);
+        }
+
+        private void formsButton_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(formsPanel);
         }
     }
 }
