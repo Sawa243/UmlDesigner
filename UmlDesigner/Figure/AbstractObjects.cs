@@ -4,14 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UmlDesigner.Action
+namespace UmlDesigner.Figure
 {
-    public class Draw: IActivity
+    class AbstractObjects
     {
-        public void Action()
-        {
-            Draw();
-        }
-
     }
 }

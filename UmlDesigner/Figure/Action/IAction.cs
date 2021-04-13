@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UmlDesigner.Action
+namespace UmlDesigner.Figure.Action
 {
-    public interface IActivity
+    public interface IAction
     {
-        void Action();
+        void Draw();
+        //void Action();
     }
 }

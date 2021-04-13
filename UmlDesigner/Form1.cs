@@ -17,7 +17,7 @@ namespace UmlDesigner
         Bitmap _tmpBitmap;
         Graphics _graphics;
         Pen _pen;
-        AbstractArrow _crntArrow;
+        //AbstractArrow _crntArrow;
 
         bool _IsClicked = false;
 
@@ -55,43 +55,43 @@ namespace UmlDesigner
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             _IsClicked = true;
-            if(_crntArrow != null) 
-            { 
-                _crntArrow.StartPoint = e.Location;
-                _crntArrow.EndPoint = e.Location;
-            }
+            //if(_crntArrow != null) 
+            //{ 
+            //    _crntArrow.StartPoint = e.Location;
+            //    _crntArrow.EndPoint = e.Location;
+            //}
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
            _IsClicked = false;
-            if(_crntArrow != null)
-            {
-                _crntArrow.EndPoint = e.Location;
-            }
+            //if(_crntArrow != null)
+            //{
+            //    _crntArrow.EndPoint = e.Location;
+            //}
             _mainBitmap = _tmpBitmap;
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_IsClicked&&
-                (_crntArrow != null))
-            {
-                _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-                _graphics = Graphics.FromImage(_tmpBitmap);
+            //if (_IsClicked&&
+            //    (_crntArrow != null))
+            //{
+            //    _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            //    _graphics = Graphics.FromImage(_tmpBitmap);
 
-                _crntArrow.EndPoint = e.Location;
+            //    _crntArrow.EndPoint = e.Location;
 
-                _crntArrow.Draw(_graphics);
+            //    _crntArrow.Draw(_graphics);
 
-                pictureBox1.Image = _tmpBitmap;
-                GC.Collect();
-            }
+            //    pictureBox1.Image = _tmpBitmap;
+            //    GC.Collect();
+            //}
         }
 
         private void buttonLine_Click(object sender, EventArgs e)
         {
-            _crntArrow = new Line();
+            //_crntArrow = new Line();
         }
 
         private void Angle(object sender, MouseEventArgs e)
