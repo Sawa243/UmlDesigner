@@ -13,6 +13,7 @@ namespace UmlDesigner.Figure
     {
         protected IAction _action;
         //Pen pen;
+
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
         protected List<Point> GetPoints()

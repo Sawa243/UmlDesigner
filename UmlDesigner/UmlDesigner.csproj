@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrowArea.cs" />
     <Compile Include="Fabric\AssotiationFabric.cs" />
     <Compile Include="Fabric\IFabric.cs" />
     <Compile Include="Figure\AbstractArrow.cs" />
