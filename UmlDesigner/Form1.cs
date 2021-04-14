@@ -18,7 +18,7 @@ namespace UmlDesigner
         Bitmap _tmpBitmap;
         Graphics _graphics;
         Pen _pen;
-        AbstractArrow _crntArrow;
+        AbstractArrow _curentArrow;
         PaintBrush _brush;
         Shape _shape;
 
@@ -40,10 +40,10 @@ namespace UmlDesigner
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             _IsClicked = true;
-            if(_crntArrow != null) 
+            if(_curentArrow != null) 
             { 
-                _crntArrow.StartPoint = e.Location;
-                _crntArrow.EndPoint = e.Location;
+                _curentArrow.StartPoint = e.Location;
+                _curentArrow.EndPoint = e.Location;
             }
             if (_shape != null)
             {
@@ -56,9 +56,9 @@ namespace UmlDesigner
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
            _IsClicked = false;
-            if(_crntArrow != null)
+            if(_curentArrow != null)
             {
-                _crntArrow.EndPoint = e.Location;
+                _curentArrow.EndPoint = e.Location;
             }
             if (_shape != null)
             {
@@ -72,12 +72,12 @@ namespace UmlDesigner
         {
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
-
+            
             if (_IsClicked&&
-                (_crntArrow != null))
+                (_curentArrow != null))
             {
-                _crntArrow.EndPoint = e.Location;
-                _crntArrow.Draw(_graphics);
+                _curentArrow.EndPoint = e.Location;
+                _curentArrow.Draw(_graphics);
             }
             if (_IsClicked &&
               (_brush != null))
@@ -98,7 +98,7 @@ namespace UmlDesigner
 
         private void buttonLine_Click(object sender, EventArgs e)
         {
-            _crntArrow = new Line();
+            _curentArrow = new Line();
             _brush = null;
             _shape = null;
         }
@@ -106,15 +106,21 @@ namespace UmlDesigner
         private void buttonBrush_Click(object sender, EventArgs e)
         {
             _brush = new PaintBrush();
-            _crntArrow = null;
+            _curentArrow = null;
             _shape = null;
         }
 
         private void buttonShape_Click(object sender, EventArgs e)
         {
             _shape = new Shape();
-            _crntArrow = null;
+            _curentArrow = null;
             _brush = null;
+        }
+
+        private void buttonCollor_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            _curentArrow.pen = new Pen(colorDialog1.Color, 3);
         }
     }
 }

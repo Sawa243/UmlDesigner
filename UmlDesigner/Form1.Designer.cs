@@ -29,22 +29,20 @@ namespace UmlDesigner
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonLine = new System.Windows.Forms.Button();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.buttonBrush = new System.Windows.Forms.Button();
             this.buttonShape = new System.Windows.Forms.Button();
+            this.buttonColor = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(165, 14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(110, 9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1097, 546);
+            this.pictureBox1.Size = new System.Drawing.Size(731, 355);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -53,10 +51,9 @@ namespace UmlDesigner
             // 
             // buttonLine
             // 
-            this.buttonLine.Location = new System.Drawing.Point(14, 14);
-            this.buttonLine.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonLine.Location = new System.Drawing.Point(9, 9);
             this.buttonLine.Name = "buttonLine";
-            this.buttonLine.Size = new System.Drawing.Size(142, 46);
+            this.buttonLine.Size = new System.Drawing.Size(95, 30);
             this.buttonLine.TabIndex = 1;
             this.buttonLine.Text = "Line";
             this.buttonLine.UseVisualStyleBackColor = true;
@@ -67,10 +64,9 @@ namespace UmlDesigner
             // 
             // buttonBrush
             // 
-            this.buttonBrush.Location = new System.Drawing.Point(14, 68);
-            this.buttonBrush.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonBrush.Location = new System.Drawing.Point(9, 44);
             this.buttonBrush.Name = "buttonBrush";
-            this.buttonBrush.Size = new System.Drawing.Size(142, 46);
+            this.buttonBrush.Size = new System.Drawing.Size(95, 30);
             this.buttonBrush.TabIndex = 2;
             this.buttonBrush.Text = "Brush";
             this.buttonBrush.UseVisualStyleBackColor = true;
@@ -81,10 +77,9 @@ namespace UmlDesigner
             // 
             // buttonShape
             // 
-            this.buttonShape.Location = new System.Drawing.Point(14, 124);
-            this.buttonShape.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonShape.Location = new System.Drawing.Point(9, 81);
             this.buttonShape.Name = "buttonShape";
-            this.buttonShape.Size = new System.Drawing.Size(142, 46);
+            this.buttonShape.Size = new System.Drawing.Size(95, 30);
             this.buttonShape.TabIndex = 3;
             this.buttonShape.Text = "Shape";
             this.buttonShape.UseVisualStyleBackColor = true;
@@ -93,21 +88,30 @@ namespace UmlDesigner
             this.buttonShape.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.buttonShape.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
+            // buttonColor
+            // 
+            this.buttonColor.Location = new System.Drawing.Point(9, 118);
+            this.buttonColor.Name = "buttonColor";
+            this.buttonColor.Size = new System.Drawing.Size(95, 30);
+            this.buttonColor.TabIndex = 4;
+            this.buttonColor.Text = "Color";
+            this.buttonColor.UseVisualStyleBackColor = true;
+            this.buttonColor.Click += new System.EventHandler(this.buttonCollor_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1342, 647);
+            this.ClientSize = new System.Drawing.Size(895, 421);
+            this.Controls.Add(this.buttonColor);
             this.Controls.Add(this.buttonShape);
             this.Controls.Add(this.buttonBrush);
             this.Controls.Add(this.buttonLine);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -116,9 +120,10 @@ namespace UmlDesigner
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonLine;
-        private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Button buttonBrush;
         private System.Windows.Forms.Button buttonShape;
+        private System.Windows.Forms.Button buttonColor;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
