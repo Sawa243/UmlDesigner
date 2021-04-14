@@ -12,7 +12,7 @@ namespace UmlDesigner.Figure
     public class AbstractArrow
     {
         protected IAction _action;
-        //Pen pen;
+        Pen pen;
 
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
@@ -29,7 +29,7 @@ namespace UmlDesigner.Figure
 
         public void Draw()
         {
-            _action.Draw();
+            _action.Draw(pen, GetPoints());
         }
 
     }

@@ -9,13 +9,13 @@ namespace UmlDesigner.Figure.Action
 {
     public class Drawing:IAction
     {
-        private Pen pen;
-        private Point[] points;
+        //private Pen pen;
+        //private List<Point> points;
         private Graphics graphics;
 
-        public void Draw()
+        public void Draw(Pen pen, List<Point> points)
         {
-            graphics.DrawLines(pen, points);
+            graphics.DrawLines(pen, points.ToArray());
         }
     }
 }

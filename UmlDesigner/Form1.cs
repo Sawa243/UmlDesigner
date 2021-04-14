@@ -17,8 +17,12 @@ namespace UmlDesigner
     {
         Bitmap _mainBitmap;
         Bitmap _tmpBitmap;
-        Graphics _graphics;
-        Pen _pen;
+        public Graphics _graphics;
+        List<Point> points = new List<Point>();
+        IFabric _fabric = new AssotiationFabric();
+
+        private AbstractArrow _crntAbstractArrow;
+        Pen pen = new Pen(Color.Black, 3);
 
         private List<AbstractArrow> arrows = new List<AbstractArrow>();
 
@@ -61,74 +65,38 @@ namespace UmlDesigner
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             _IsClicked = true;
-            //if(_crntArrow != null) 
-            //{ 
-            //    _crntArrow.StartPoint = e.Location;
-            //    _crntArrow.EndPoint = e.Location;
-            //}
-            List<Point> points = new List<Point>();
-                points.Add(new Point(e.X));
-                points.Add(new Point(e.Y));
-            
-            IFabric _fabric = new AssotiationFabric();
 
-            arrows.Add(_fabric.GetArrow(_pen, points));
-            
+            _crntAbstractArrow = _fabric.GetArrow( pen, points);
+
+            _crntAbstractArrow.StartPoint = e.Location;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
            _IsClicked = false;
-            //if(_crntArrow != null)
-            //{
-            //    _crntArrow.EndPoint = e.Location;
-            //}
-            _mainBitmap = _tmpBitmap;
+           _mainBitmap = _tmpBitmap;
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            //if (_IsClicked&&
-            //    (_crntArrow != null))
-            //{
-            //    _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-            //    _graphics = Graphics.FromImage(_tmpBitmap);
+            _tmpBitmap = (Bitmap) _mainBitmap.Clone();
+            _graphics = Graphics.FromImage(_tmpBitmap);
 
-            //    _crntArrow.EndPoint = e.Location;
 
-            //    _crntArrow.Draw(_graphics);
+            if (_IsClicked)
+            {
+                _crntAbstractArrow.EndPoint = e.Location;
 
-            //    pictureBox1.Image = _tmpBitmap;
-            //    GC.Collect();
-            //}
+                _crntAbstractArrow.Draw();
+            }
+
+            pictureBox1.Image = _tmpBitmap;
+
         }
 
         private void buttonLine_Click(object sender, EventArgs e)
         {
-            //_crntArrow = new Line();
-            //GetArrow(pen, points);
-            
-
         }
 
-        private void Angle(object sender, MouseEventArgs e)
-        {
-            _pen = new Pen(Color.Blue, 6);
-            _graphics = Graphics.FromImage(_mainBitmap);
-            _graphics.DrawLine(_pen, 1, 1, 20, 20);
-            _graphics.DrawLine(_pen, 20, 20, 1, 40);
-        }
-
-        private void AddLine()
-        {
-            int x1;
-            int x2;
-            int y1;
-            int y2;
-
-            _pen = new Pen(Color.Blue, 6);
-            _graphics = Graphics.FromImage(_mainBitmap);
-            _graphics.DrawLine(_pen, 1, 1, 20, 20);
-        }
     }
 }

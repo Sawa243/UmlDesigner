@@ -13,7 +13,7 @@ namespace UmlDesigner.Fabric
     {
         public AbstractArrow GetArrow(Pen pen, List<Point> points)
         {
-            return new AssotiationArrow(pen, points,new Drawing());
+            return new AssotiationArrow(pen, new Drawing());
         }
     }
 }
