@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UmlDesigner.Arrows;
+using UmlDesigner.Shapes;
 
 namespace UmlDesigner
 {
@@ -19,6 +20,7 @@ namespace UmlDesigner
         Pen _pen;
         AbstractArrow _crntArrow;
         PaintBrush _brush;
+        Shape _shape;
 
         bool _IsClicked = false;
 
@@ -43,6 +45,12 @@ namespace UmlDesigner
                 _crntArrow.StartPoint = e.Location;
                 _crntArrow.EndPoint = e.Location;
             }
+            if (_shape != null)
+            {
+                _shape.StartPoint = e.Location;
+                _shape.EndPoint = e.Location;
+            }
+
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -52,6 +60,11 @@ namespace UmlDesigner
             {
                 _crntArrow.EndPoint = e.Location;
             }
+            if (_shape != null)
+            {
+                _shape.EndPoint = e.Location;
+            }
+
             _mainBitmap = _tmpBitmap;
         }
 
@@ -72,6 +85,12 @@ namespace UmlDesigner
                 _brush.point = e.Location;
                 _brush.Draw(_graphics, _mainBitmap);
             }
+            if(_IsClicked &&
+                (_shape != null))
+            {
+                _shape.EndPoint = e.Location;
+                _shape.Draw(_graphics);
+            }
 
             pictureBox1.Image = _tmpBitmap;
             GC.Collect();
@@ -80,12 +99,22 @@ namespace UmlDesigner
         private void buttonLine_Click(object sender, EventArgs e)
         {
             _crntArrow = new Line();
+            _brush = null;
+            _shape = null;
         }
 
         private void buttonBrush_Click(object sender, EventArgs e)
         {
             _brush = new PaintBrush();
             _crntArrow = null;
+            _shape = null;
+        }
+
+        private void buttonShape_Click(object sender, EventArgs e)
+        {
+            _shape = new Shape();
+            _crntArrow = null;
+            _brush = null;
         }
     }
 }

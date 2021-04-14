@@ -34,6 +34,7 @@ namespace UmlDesigner
             this.buttonLine = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.buttonBrush = new System.Windows.Forms.Button();
+            this.buttonShape = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -78,11 +79,26 @@ namespace UmlDesigner
             this.buttonBrush.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.buttonBrush.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
+            // buttonShape
+            // 
+            this.buttonShape.Location = new System.Drawing.Point(14, 124);
+            this.buttonShape.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonShape.Name = "buttonShape";
+            this.buttonShape.Size = new System.Drawing.Size(142, 46);
+            this.buttonShape.TabIndex = 3;
+            this.buttonShape.Text = "Shape";
+            this.buttonShape.UseVisualStyleBackColor = true;
+            this.buttonShape.Click += new System.EventHandler(this.buttonShape_Click);
+            this.buttonShape.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.buttonShape.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.buttonShape.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1342, 647);
+            this.Controls.Add(this.buttonShape);
             this.Controls.Add(this.buttonBrush);
             this.Controls.Add(this.buttonLine);
             this.Controls.Add(this.pictureBox1);
@@ -102,6 +118,7 @@ namespace UmlDesigner
         private System.Windows.Forms.Button buttonLine;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Button buttonBrush;
+        private System.Windows.Forms.Button buttonShape;
     }
 }
 
