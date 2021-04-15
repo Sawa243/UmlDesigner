@@ -10,7 +10,6 @@ namespace UmlDesigner.Figure
 {
     class AssotiationArrow: AbstractArrow
     {
-        //Pen pen = new Pen(Color.Black, 3);
         public AssotiationArrow(Pen pen, IAction action)
         {
             _action = action;

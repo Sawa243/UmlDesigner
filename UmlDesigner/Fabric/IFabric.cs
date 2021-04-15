@@ -11,7 +11,6 @@ namespace UmlDesigner.Fabric
 {
     interface IFabric
     {
-        //AbstractArrow GetArrow(Pen pen, Point [] points);
         AbstractArrow GetArrow(Pen pen);
     }
 }

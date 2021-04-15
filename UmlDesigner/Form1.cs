@@ -26,8 +26,6 @@ namespace UmlDesigner
 
         private List<AbstractArrow> arrows = new List<AbstractArrow>();
 
-        //private IFabric _fabric = new AssotiationFabric();
-        //AbstractArrow _crntArrow;
 
         bool _IsClicked = false;
 
@@ -44,23 +42,6 @@ namespace UmlDesigner
             pictureBox1.Image = _mainBitmap;
         }
 
-       //private void DrowBrush (object sender, MouseEventArgs e)
-       // {
-       //     if (_IsClicked)
-       //     {
-       //         for (int i = 0; i < 10; i++)
-       //         {
-       //             for (int j = 0; j < 10; j++)
-       //             {
-       //                 if (pictureBox1.Width > i + e.X && pictureBox1.Height > j + e.Y)
-       //                 {
-       //                     _mainBitmap.SetPixel(i + e.X, j + e.Y, Color.Red);
-       //                 }
-       //             }
-       //         }
-       //         pictureBox1.Image = _mainBitmap;
-       //     }
-       // }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
