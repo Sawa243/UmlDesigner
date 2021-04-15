@@ -11,9 +11,9 @@ namespace UmlDesigner.Figure.Action
     {
         //private Pen pen;
         //private List<Point> points;
-        private Graphics graphics;
+        //private Graphics graphics;
 
-        public void Draw(Pen pen, List<Point> points)
+        public void Draw(Graphics graphics, Pen pen, List<Point> points)
         {
             graphics.DrawLines(pen, points.ToArray());
         }

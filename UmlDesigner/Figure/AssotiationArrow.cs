@@ -13,9 +13,8 @@ namespace UmlDesigner.Figure
         //Pen pen = new Pen(Color.Black, 3);
         public AssotiationArrow(Pen pen, IAction action)
         {
-            List<Point> points = GetPoints();
-
             _action = action;
+            _pen = pen;
         }
     }
 }

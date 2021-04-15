@@ -22,7 +22,7 @@ namespace UmlDesigner
         IFabric _fabric = new AssotiationFabric();
 
         private AbstractArrow _crntAbstractArrow;
-        Pen pen = new Pen(Color.Black, 3);
+        Pen pen = new Pen(Color.Red, 3);
 
         private List<AbstractArrow> arrows = new List<AbstractArrow>();
 
@@ -66,7 +66,7 @@ namespace UmlDesigner
         {
             _IsClicked = true;
 
-            _crntAbstractArrow = _fabric.GetArrow( pen, points);
+            _crntAbstractArrow = _fabric.GetArrow(pen);
 
             _crntAbstractArrow.StartPoint = e.Location;
         }
@@ -81,13 +81,14 @@ namespace UmlDesigner
         {
             _tmpBitmap = (Bitmap) _mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
-
+            
 
             if (_IsClicked)
             {
                 _crntAbstractArrow.EndPoint = e.Location;
 
-                _crntAbstractArrow.Draw();
+
+                    _crntAbstractArrow.Draw(_graphics);
             }
 
             pictureBox1.Image = _tmpBitmap;

@@ -9,7 +9,7 @@ namespace UmlDesigner.Figure.Action
 {
     public interface IAction
     {
-        void Draw(Pen pen, List<Point> points);
+        void Draw(Graphics graphics, Pen pen, List<Point> points);
         //void Action();
     }
 }

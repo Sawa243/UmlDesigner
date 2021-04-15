@@ -11,7 +11,7 @@ namespace UmlDesigner.Fabric
 {
     public class AssotiationFabric : IFabric
     {
-        public AbstractArrow GetArrow(Pen pen, List<Point> points)
+        public AbstractArrow GetArrow(Pen pen)
         {
             return new AssotiationArrow(pen, new Drawing());
         }
