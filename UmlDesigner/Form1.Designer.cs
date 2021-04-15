@@ -31,6 +31,7 @@ namespace UmlDesigner
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.trackBarSize = new System.Windows.Forms.TrackBar();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSize)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +81,7 @@ namespace UmlDesigner
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TrackBar trackBarSize;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 

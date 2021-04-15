@@ -71,8 +71,7 @@ namespace UmlDesigner
         }
         private void EditSizeAndColor ()
         {
-            pen = new Pen(Color.Black, trackBarSize.Value);
-
+            pen = new Pen(colorDialog1.Color, trackBarSize.Value); 
         }
     }
 }
