@@ -35,7 +35,7 @@ namespace UmlDesigner
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
-            pictureBox1.Image = _mainBitmap;
+            pictureBox1.Image = _mainBitmap; 
         }
 
 
@@ -63,6 +63,15 @@ namespace UmlDesigner
                     _crntAbstractArrow.Draw(_graphics);
             }
             pictureBox1.Image = _tmpBitmap;
+        }
+
+        private void trackBarSize_Scroll(object sender, EventArgs e)
+        {
+            EditSizeAndColor();
+        }
+        private void EditSizeAndColor ()
+        {
+            pen = new Pen(Color.Black, trackBarSize.Value);
         }
     }
 }
