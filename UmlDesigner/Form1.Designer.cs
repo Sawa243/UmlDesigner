@@ -29,79 +29,72 @@ namespace UmlDesigner
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonLine = new System.Windows.Forms.Button();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonBrush = new System.Windows.Forms.Button();
+            this.trackBarSize = new System.Windows.Forms.TrackBar();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.buttonColor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSize)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(165, 14);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(110, 9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1097, 546);
+            this.pictureBox1.Size = new System.Drawing.Size(731, 355);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // buttonLine
+            // trackBarSize
             // 
-            this.buttonLine.Location = new System.Drawing.Point(14, 14);
-            this.buttonLine.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonLine.Name = "buttonLine";
-            this.buttonLine.Size = new System.Drawing.Size(142, 46);
-            this.buttonLine.TabIndex = 1;
-            this.buttonLine.Text = "Line";
-            this.buttonLine.UseVisualStyleBackColor = true;
-            this.buttonLine.Click += new System.EventHandler(this.buttonLine_Click);
-            this.buttonLine.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            this.buttonLine.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            this.buttonLine.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            this.trackBarSize.LargeChange = 2;
+            this.trackBarSize.Location = new System.Drawing.Point(847, 21);
+            this.trackBarSize.Maximum = 30;
+            this.trackBarSize.Minimum = 2;
+            this.trackBarSize.Name = "trackBarSize";
+            this.trackBarSize.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBarSize.Size = new System.Drawing.Size(45, 145);
+            this.trackBarSize.TabIndex = 1;
+            this.trackBarSize.Value = 6;
+            this.trackBarSize.Scroll += new System.EventHandler(this.trackBarSize_Scroll);
             // 
-            // buttonBrush
+            // buttonColor
             // 
-            this.buttonBrush.Location = new System.Drawing.Point(14, 68);
-            this.buttonBrush.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonBrush.Name = "buttonBrush";
-            this.buttonBrush.Size = new System.Drawing.Size(142, 46);
-            this.buttonBrush.TabIndex = 2;
-            this.buttonBrush.Text = "Brush";
-            this.buttonBrush.UseVisualStyleBackColor = true;
-            this.buttonBrush.Click += new System.EventHandler(this.buttonBrush_Click);
-            this.buttonBrush.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            this.buttonBrush.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
-            this.buttonBrush.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            this.buttonColor.Location = new System.Drawing.Point(847, 172);
+            this.buttonColor.Name = "buttonColor";
+            this.buttonColor.Size = new System.Drawing.Size(36, 23);
+            this.buttonColor.TabIndex = 2;
+            this.buttonColor.Text = "Color";
+            this.buttonColor.UseVisualStyleBackColor = true;
+            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1342, 647);
-            this.Controls.Add(this.buttonBrush);
-            this.Controls.Add(this.buttonLine);
+            this.ClientSize = new System.Drawing.Size(895, 421);
+            this.Controls.Add(this.buttonColor);
+            this.Controls.Add(this.trackBarSize);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarSize)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button buttonLine;
-        private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.Button buttonBrush;
+        private System.Windows.Forms.TrackBar trackBarSize;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button buttonColor;
     }
 }
 
