@@ -13,7 +13,6 @@ namespace UmlDesigner.Figure
     {
         protected IAction _action;
         protected Pen _pen;
-
         public AbstractArrow()
         {
             _action = new Drawing();
@@ -31,11 +30,9 @@ namespace UmlDesigner.Figure
             points.Add(EndPoint);
             return points;
         }
-
         public void Draw(Graphics graphics)
         {
             _action.Draw(graphics, _pen, GetPoints());
         }
-
     }
 }

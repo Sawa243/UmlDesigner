@@ -20,13 +20,9 @@ namespace UmlDesigner
         public Graphics _graphics;
         List<Point> points = new List<Point>();
         IFabric _fabric = new AssotiationFabric();
-
         private AbstractArrow _crntAbstractArrow;
         Pen pen = new Pen(Color.Red, 3);
-
         private List<AbstractArrow> arrows = new List<AbstractArrow>();
-
-
         bool _IsClicked = false;
 
         public Form1()
@@ -46,9 +42,7 @@ namespace UmlDesigner
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             _IsClicked = true;
-
             _crntAbstractArrow = _fabric.GetArrow(pen);
-
             _crntAbstractArrow.StartPoint = e.Location;
         }
 
@@ -62,23 +56,13 @@ namespace UmlDesigner
         {
             _tmpBitmap = (Bitmap) _mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
-            
 
             if (_IsClicked)
             {
                 _crntAbstractArrow.EndPoint = e.Location;
-
-
                     _crntAbstractArrow.Draw(_graphics);
             }
-
             pictureBox1.Image = _tmpBitmap;
-
         }
-
-        private void buttonLine_Click(object sender, EventArgs e)
-        {
-        }
-
     }
 }
