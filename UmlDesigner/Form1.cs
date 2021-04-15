@@ -68,10 +68,17 @@ namespace UmlDesigner
         private void trackBarSize_Scroll(object sender, EventArgs e)
         {
             EditSizeAndColor();
+          
         }
         private void EditSizeAndColor ()
         {
             pen = new Pen(colorDialog1.Color, trackBarSize.Value); 
+        }
+
+        private void buttonColor_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            EditSizeAndColor();
         }
     }
 }
