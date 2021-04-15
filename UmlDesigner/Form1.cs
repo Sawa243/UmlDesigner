@@ -72,6 +72,7 @@ namespace UmlDesigner
         private void EditSizeAndColor ()
         {
             pen = new Pen(Color.Black, trackBarSize.Value);
+
         }
     }
 }
