@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UmlDesigner.Fabric;
 using UmlDesigner.Figure;
@@ -21,7 +16,7 @@ namespace UmlDesigner
         List<Point> points = new List<Point>();
         IFabric _fabric = new AssotiationFabric();
         private AbstractArrow _crntAbstractArrow;
-        Pen pen = new Pen(Color.Red, 3);
+        Pen pen = new Pen(Color.Black, 3);
         private List<AbstractArrow> arrows = new List<AbstractArrow>();
         bool _IsClicked = false;
 
@@ -60,7 +55,7 @@ namespace UmlDesigner
             if (_IsClicked)
             {
                 _crntAbstractArrow.EndPoint = e.Location;
-                    _crntAbstractArrow.Draw(_graphics);
+                _crntAbstractArrow.Draw(_graphics);
             }
             pictureBox1.Image = _tmpBitmap;
         }
