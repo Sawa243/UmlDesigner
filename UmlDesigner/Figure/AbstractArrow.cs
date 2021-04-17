@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -9,7 +10,7 @@ using UmlDesigner.Figure.Action;
 
 namespace UmlDesigner.Figure
 {
-    public class AbstractArrow
+    public abstract class AbstractArrow
     {
         protected IAction _action;
         protected Pen _pen;
@@ -20,6 +21,7 @@ namespace UmlDesigner.Figure
 
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
+
         protected List<Point> GetPoints()
         {
             List<Point> points = new List<Point>();
