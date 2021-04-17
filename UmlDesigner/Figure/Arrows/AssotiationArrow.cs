@@ -16,17 +16,7 @@ namespace UmlDesigner.Figure
         {
             _action = action;
             _pen = pen;
-            _pen.CustomEndCap = new AdjustableArrowCap(6, 6, false);
+            _pen.CustomEndCap = new AdjustableArrowCap(6, 6);
         }
-        //protected override List<Point> GetPoints()
-        //{
-        //    List<Point> points = new List<Point>();
-        //    points.Add(StartPoint);
-        //    int middleX = (EndPoint.X + StartPoint.X) / 2;
-        //    points.Add(new Point(middleX, StartPoint.Y));
-        //    points.Add(new Point(middleX, EndPoint.Y));
-        //    points.Add(EndPoint);
-        //    return points;
-        //}
     }
 }

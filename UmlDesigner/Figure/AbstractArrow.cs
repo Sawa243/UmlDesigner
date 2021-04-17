@@ -32,6 +32,7 @@ namespace UmlDesigner.Figure
             points.Add(EndPoint);
             return points;
         }
+
         public void Draw(Graphics graphics)
         {
             _action.Draw(graphics, _pen, GetPoints());

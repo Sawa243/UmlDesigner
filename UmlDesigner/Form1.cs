@@ -14,7 +14,7 @@ namespace UmlDesigner
         Bitmap _tmpBitmap;
         public Graphics _graphics;
         List<Point> points = new List<Point>();
-        IFabric _fabric = new InheritanceFactory();
+        IFabric _fabric = new AssotiationFabric();
         private AbstractArrow _crntAbstractArrow;
         Pen pen = new Pen(Color.Black, 3);
         private List<AbstractArrow> arrows = new List<AbstractArrow>();

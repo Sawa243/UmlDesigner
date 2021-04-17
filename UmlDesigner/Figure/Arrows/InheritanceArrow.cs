@@ -15,8 +15,16 @@ namespace UmlDesigner.Figure.Arrows
         {
             _action = action;
             _pen = pen;
-            _pen.CustomEndCap = new AdjustableArrowCap(6, 6);
-
+            _pen.CustomEndCap = new CustomLineCap(null, GetGraphicsPath());
+        }
+        private GraphicsPath GetGraphicsPath()
+        {
+            GraphicsPath cap = new GraphicsPath();
+           
+            cap.AddLine(-20, 0, 20, 0);
+            cap.AddLine(-20, 0, 0, 20);
+            cap.AddLine(0, 20, 20, 0);
+            return cap;
         }
     }
 }
