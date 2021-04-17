@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
 using UmlDesigner.Figure.Action;
 
 namespace UmlDesigner.Figure
@@ -13,6 +14,7 @@ namespace UmlDesigner.Figure
     {
         protected IAction _action;
         protected Pen _pen;
+
         public AbstractArrow()
         {
             _action = new Drawing();
@@ -20,6 +22,7 @@ namespace UmlDesigner.Figure
 
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
+
         protected List<Point> GetPoints()
         {
             List<Point> points = new List<Point>();
@@ -30,9 +33,11 @@ namespace UmlDesigner.Figure
             points.Add(EndPoint);
             return points;
         }
+
         public void Draw(Graphics graphics)
         {
             _action.Draw(graphics, _pen, GetPoints());
+
         }
     }
 }
