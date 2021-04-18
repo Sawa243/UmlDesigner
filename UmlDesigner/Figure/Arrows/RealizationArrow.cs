@@ -1,4 +1,3 @@
-
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,17 +7,16 @@ using System.Text;
 using System.Threading.Tasks;
 using UmlDesigner.Figure.Action;
 
-namespace UmlDesigner.Figure
+namespace UmlDesigner.Figure.Arrows
 {
-    class AssotiationArrow: AbstractArrow
+    public class RealizationArrow : AbstractArrow
     {
-        public AssotiationArrow(Pen pen, IAction action)
+        public RealizationArrow(Pen pen, IAction action)
         {
             _action = action;
             _pen = pen;
             _pen.CustomEndCap = new AdjustableArrowCap(6, 6);
             _pen.DashPattern = new float[] { 3f, 2f };
-
 
         }
     }
