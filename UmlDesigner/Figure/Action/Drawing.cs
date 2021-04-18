@@ -14,5 +14,6 @@ namespace UmlDesigner.Figure.Action
         {
             graphics.DrawLines(pen, points.ToArray());
         }
+
     }
 }

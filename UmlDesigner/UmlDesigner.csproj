@@ -54,6 +54,7 @@
     <Compile Include="Figure\Action\Drawing.cs" />
     <Compile Include="Figure\Action\IAction.cs" />
     <Compile Include="Figure\Arrows\AssotiationArrow.cs" />
+    <Compile Include="Figure\Forms\FormClass.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,8 +88,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Figure\Forms\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

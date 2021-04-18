@@ -13,13 +13,12 @@ namespace UmlDesigner.Figure
     {
         protected IAction _action;
         protected Pen _pen;
+        public Point StartPoint { get; set; }
+        public Point EndPoint { get; set; }
         public AbstractArrow()
         {
             _action = new Drawing();
         }
-
-        public Point StartPoint { get; set; }
-        public Point EndPoint { get; set; }
         protected List<Point> GetPoints()
         {
             List<Point> points = new List<Point>();

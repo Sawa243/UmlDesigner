@@ -16,6 +16,8 @@ namespace UmlDesigner
         List<Point> points = new List<Point>();
         IFabric _fabric = new AssotiationFabric();
         private AbstractArrow _crntAbstractArrow;
+        private AbstractObjects _carentObject;
+        private List<AbstractObjects> objectForm = new List<AbstractObjects>();
         Pen pen = new Pen(Color.Black, 3);
         private List<AbstractArrow> arrows = new List<AbstractArrow>();
         bool _IsClicked = false;
@@ -37,8 +39,14 @@ namespace UmlDesigner
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             _IsClicked = true;
-            _crntAbstractArrow = _fabric.GetArrow(pen);
-            _crntAbstractArrow.StartPoint = e.Location;
+            if (_crntAbstractArrow != null)
+            {
+                _crntAbstractArrow.StartPoint = e.Location;
+            }
+            if (_carentObject!=null)
+            {
+                _carentObject.StartPoint = e.Location;
+            }
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -52,10 +60,15 @@ namespace UmlDesigner
             _tmpBitmap = (Bitmap) _mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
 
-            if (_IsClicked)
+            if (_IsClicked && _crntAbstractArrow!=null)
             {
                 _crntAbstractArrow.EndPoint = e.Location;
                 _crntAbstractArrow.Draw(_graphics);
+            }
+            if (_IsClicked && _carentObject!=null)
+            {
+                _carentObject.EndPoint = e.Location;
+                _carentObject.Draw(_graphics);
             }
             pictureBox1.Image = _tmpBitmap;
         }
@@ -74,6 +87,22 @@ namespace UmlDesigner
         {
             colorDialog1.ShowDialog();
             EditSizeAndColor();
+        }
+
+        private void comboBoxArrows_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBoxArrows.SelectedIndex==0)
+            {
+                _crntAbstractArrow = _fabric.GetArrow(pen);
+            }
+        }
+
+        private void comboBoxForms_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxForms.SelectedIndex==0)
+            {
+                _carentObject = _fabric.GetObjects();
+            }
         }
     }
 }
