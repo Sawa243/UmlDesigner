@@ -15,8 +15,10 @@ namespace UmlDesigner
         public Graphics _graphics;
         List<Point> points = new List<Point>();
         IFabric _fabric = new AssotiationFabric();
+        IFabric _fabricForm = new FormsClasFactory();
         private AbstractArrow _crntAbstractArrow;
-        private AbstractObjects _carentObject;
+        public Rectangle rectangle = new Rectangle(0, 0, 200, 200);
+        private AbstractAllFigurs _carentObject;
         private List<AbstractObjects> objectForm = new List<AbstractObjects>();
         Pen pen = new Pen(Color.Black, 3);
         private List<AbstractArrow> arrows = new List<AbstractArrow>();
@@ -43,10 +45,11 @@ namespace UmlDesigner
             {
                 _crntAbstractArrow.StartPoint = e.Location;
             }
-            if (_carentObject!=null)
-            {
-                _carentObject.StartPoint = e.Location;
-            }
+
+            _carentObject = _fabricForm.GetElement(pen);
+            _carentObject.StartPoint = e.Location;
+            
+           
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -93,7 +96,7 @@ namespace UmlDesigner
         {
             if(comboBoxArrows.SelectedIndex==0)
             {
-                _crntAbstractArrow = _fabric.GetArrow(pen);
+                //_crntAbstractArrow = _fabric.GetArrow(pen);
             }
         }
 
@@ -101,7 +104,7 @@ namespace UmlDesigner
         {
             if (comboBoxForms.SelectedIndex==0)
             {
-                _carentObject = _fabric.GetObjects();
+                //_carentObject = _fabric.GetObjects();
             }
         }
     }

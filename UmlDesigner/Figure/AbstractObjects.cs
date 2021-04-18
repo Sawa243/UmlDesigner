@@ -4,31 +4,29 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UmlDesigner.Figure.Action;
 using UmlDesigner.Figure.Forms;
 
 namespace UmlDesigner.Figure
 {
-   public class AbstractObjects
+   public abstract class AbstractObjects: AbstractAllFigurs
     {
-        protected FormClass _form;
-        public Point StartPoint { get; set; }
-        public Point EndPoint { get; set; }
-        public Color Color { get; set; }
-        public int PenWidth { get; set; }
-        public Point Size { get; set; }
-        int Line = 3;
-        public void DrawTextLabel(Graphics graphics, Rectangle field, string nameLabel)
+        public AbstractObjects()
         {
-            var _brush = Brushes.Red;
-            StringFormat _stringFormat = new StringFormat();
-            graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            _stringFormat.Alignment = StringAlignment.Center;
-            _stringFormat.LineAlignment = StringAlignment.Center;
-            graphics.DrawString(nameLabel, new System.Drawing.Font("Segoe Script", 12, FontStyle.Regular), _brush, field, _stringFormat);
+            _action = new DrawForms();
         }
-        public void Draw (Graphics graphics )
+        protected override List<Point> GetPoints()
         {
-            _form.DrawClassEntity(Color,PenWidth,graphics,StartPoint,Size,Line);
+            List<Point> points = new List<Point>();
+            points.Add(StartPoint);
+            points.Add(new Point(0));
+            points.Add(new Point(200));
+            points.Add(new Point(200));
+            return points;
+        }
+        public override void Draw(Graphics graphics)
+        {
+            _action.Draw(graphics,_pen, GetPoints());
         }
     }
 }

@@ -9,17 +9,13 @@ using UmlDesigner.Figure.Action;
 
 namespace UmlDesigner.Figure
 {
-    public class AbstractArrow
+    public class AbstractArrow:AbstractAllFigurs
     {
-        protected IAction _action;
-        protected Pen _pen;
-        public Point StartPoint { get; set; }
-        public Point EndPoint { get; set; }
         public AbstractArrow()
         {
             _action = new Drawing();
         }
-        protected List<Point> GetPoints()
+        protected override List<Point> GetPoints()
         {
             List<Point> points = new List<Point>();
             points.Add(StartPoint);
@@ -29,7 +25,7 @@ namespace UmlDesigner.Figure
             points.Add(EndPoint);
             return points;
         }
-        public void Draw(Graphics graphics)
+        public override void Draw(Graphics graphics)
         {
             _action.Draw(graphics, _pen, GetPoints());
         }

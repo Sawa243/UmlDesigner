@@ -8,13 +8,9 @@ namespace UmlDesigner.Fabric
 {
     public class AssotiationFabric : IFabric
     {
-        public AbstractArrow GetArrow(Pen pen)
+        public AbstractAllFigurs GetElement(Pen pen)
         {
             return new AssotiationArrow(pen, new Drawing());
-        }
-        public AbstractObjects GetObjects()
-        {
-            return new FormClass();
         }
     }
 }

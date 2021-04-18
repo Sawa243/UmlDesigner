@@ -6,8 +6,7 @@ namespace UmlDesigner.Fabric
 {
     interface IFabric
     {
-        AbstractArrow GetArrow(Pen pen);
-        AbstractObjects GetObjects();
+        AbstractAllFigurs GetElement(Pen pen);
     }
 }
 
