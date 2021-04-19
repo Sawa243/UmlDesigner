@@ -16,7 +16,6 @@ namespace UmlDesigner
         Pen _pen = new Pen(Color.Red,4);
         List<Point> points = new List<Point>();
         IFabric _fabric;
-        public Rectangle rectangle = new Rectangle(0, 0, 200, 200);
         private AbstractAllFigurs _carentObject;
         private List<AbstractObjects> objectForm = new List<AbstractObjects>();
         private List<AbstractArrow> arrows = new List<AbstractArrow>();

@@ -19,9 +19,7 @@ namespace UmlDesigner.Figure
         {
             List<Point> points = new List<Point>();
             points.Add(StartPoint);
-            points.Add(new Point(0));
-            points.Add(new Point(200));
-            points.Add(new Point(200));
+            points.Add(EndPoint);
             return points;
         }
         public override void Draw(Graphics graphics)

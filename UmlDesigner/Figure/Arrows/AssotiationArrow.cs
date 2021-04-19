@@ -1,6 +1,7 @@
 
 
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using UmlDesigner.Figure.Action;
 
 namespace UmlDesigner.Figure
@@ -11,6 +12,7 @@ namespace UmlDesigner.Figure
         {
             _action = action;
             _pen = pen;
+            pen.CustomEndCap = new AdjustableArrowCap(5, 5);
         }
     }
 }
