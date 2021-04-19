@@ -40,11 +40,9 @@ namespace UmlDesigner
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             _IsClicked = true;
+            _pen = new Pen(colorDialog1.Color, trackBarSize.Value);
             _carentObject = _fabric.GetElement(_pen);
-            if (_carentObject != null)
-            {
-                _carentObject.StartPoint = e.Location;
-            }
+            _carentObject.StartPoint = e.Location;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -92,9 +90,14 @@ namespace UmlDesigner
 
         private void comboBoxForms_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxForms.SelectedIndex==0)
+            switch (comboBoxForms.SelectedIndex)
             {
+                case 0 :
                 _fabric = new FormsClasFactory();
+            break;
+                case 1:
+                    _fabric = new FormBlockFactory();
+                    break;
             }
         }
     }
