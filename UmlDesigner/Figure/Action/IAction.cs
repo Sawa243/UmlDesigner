@@ -12,6 +12,5 @@ namespace UmlDesigner.Figure.Action
     public interface IAction
     {
         void Draw(Graphics graphics, Pen pen, List<Point> points);
-        void Fill(Graphics graphics, SolidBrush brush, GraphicsPath path);
     }
 }

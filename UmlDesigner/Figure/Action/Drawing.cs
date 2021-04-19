@@ -15,10 +15,5 @@ namespace UmlDesigner.Figure.Action
         {
             graphics.DrawLines(pen, points.ToArray());
         }
-
-        public void Fill(Graphics graphics, SolidBrush brush, GraphicsPath path)
-        {
-            graphics.FillPath(brush, path);
-        }
     }
 }
