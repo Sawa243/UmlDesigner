@@ -48,12 +48,16 @@
   <ItemGroup>
     <Compile Include="DrowArea.cs" />
     <Compile Include="Fabric\AssotiationFabric.cs" />
+    <Compile Include="Fabric\FormsClasFactory.cs" />
     <Compile Include="Fabric\IFabric.cs" />
+    <Compile Include="Figure\AbstractAllFigurs.cs" />
     <Compile Include="Figure\AbstractArrow.cs" />
     <Compile Include="Figure\AbstractObjects.cs" />
+    <Compile Include="Figure\Action\DrawForms.cs" />
     <Compile Include="Figure\Action\Drawing.cs" />
     <Compile Include="Figure\Action\IAction.cs" />
     <Compile Include="Figure\Arrows\AssotiationArrow.cs" />
+    <Compile Include="Figure\Forms\FormClass.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,8 +91,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Figure\Forms\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

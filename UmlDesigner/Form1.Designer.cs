@@ -93,6 +93,7 @@ namespace UmlDesigner
             this.comboBoxArrows.Name = "comboBoxArrows";
             this.comboBoxArrows.Size = new System.Drawing.Size(121, 28);
             this.comboBoxArrows.TabIndex = 3;
+            this.comboBoxArrows.SelectedIndexChanged += new System.EventHandler(this.comboBoxArrows_SelectedIndexChanged);
             // 
             // comboBoxForms
             // 
@@ -107,6 +108,7 @@ namespace UmlDesigner
             this.comboBoxForms.Name = "comboBoxForms";
             this.comboBoxForms.Size = new System.Drawing.Size(121, 28);
             this.comboBoxForms.TabIndex = 4;
+            this.comboBoxForms.SelectedIndexChanged += new System.EventHandler(this.comboBoxForms_SelectedIndexChanged);
             // 
             // label1
             // 
