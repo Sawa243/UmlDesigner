@@ -12,7 +12,7 @@ namespace UmlDesigner.Fabric
 {
     public class AggregationFactory: IFabric
     {
-        public AbstractArrow GetArrow(Pen pen)
+        public AbstractAllFigurs GetElement(Pen pen)
         {
             return new AggregationArrow(pen, new Drawing());
         }

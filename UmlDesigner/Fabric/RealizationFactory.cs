@@ -12,7 +12,7 @@ namespace UmlDesigner.Fabric
 {
     public class RealizationFactory:IFabric
     {
-        public AbstractArrow GetArrow(Pen pen)
+        public AbstractAllFigurs GetElement(Pen pen)
         {
             return new RealizationArrow(pen, new Drawing());
         }

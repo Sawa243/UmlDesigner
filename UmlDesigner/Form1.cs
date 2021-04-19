@@ -42,10 +42,9 @@ namespace UmlDesigner
         {
             _IsClicked = true;
             _carentObject = _fabric.GetElement(_pen);
-            if (_carentObject != null)
-            {
+            
                 _carentObject.StartPoint = e.Location;
-            }
+            
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -84,10 +83,19 @@ namespace UmlDesigner
 
         private void comboBoxArrows_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            if (comboBoxArrows.SelectedIndex == 0)
+
+            switch (comboBoxArrows.SelectedIndex)
             {
-                _fabric = new AssotiationFabric();
+                case 0: _fabric = new AggregationFactory(); 
+                    break;
+                case 1: _fabric = new AssotiationFabric();
+                    break;
+                case 2: _fabric = new CompositionFactory();
+                    break;
+                case 3: _fabric = new InheritanceFactory();
+                    break;
+                case 4: _fabric = new RealizationFactory();
+                    break;
             }
         }
 
