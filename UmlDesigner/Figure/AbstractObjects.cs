@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UmlDesigner.Figure
 {
-    class AbstractObjects
+    public class AbstractObjects
     {
     }
 }

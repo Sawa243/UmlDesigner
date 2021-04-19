@@ -21,9 +21,9 @@ namespace UmlDesigner.Figure.Arrows
         {
             GraphicsPath cap = new GraphicsPath();
            
-            cap.AddLine(-20, 0, 20, 0);
-            cap.AddLine(-20, 0, 0, 20);
-            cap.AddLine(0, 20, 20, 0);
+            cap.AddLine(-6, 0, 6, 0);
+            cap.AddLine(-6, 0, 0, 6);
+            cap.AddLine(0, 6, 6, 0);
             return cap;
         }
     }
