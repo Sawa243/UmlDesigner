@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using UmlDesigner.Fabric;
 using UmlDesigner.Figure;
+using UmlDesigner.Figure.Arrows;
 
 
 namespace UmlDesigner
