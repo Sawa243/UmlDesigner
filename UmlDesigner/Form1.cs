@@ -13,14 +13,12 @@ namespace UmlDesigner
         Bitmap _mainBitmap;
         Bitmap _tmpBitmap;
         public Graphics _graphics;
+        Pen _pen = new Pen(Color.Red,4);
         List<Point> points = new List<Point>();
-        IFabric _fabric = new AssotiationFabric();
-        IFabric _fabricForm = new FormsClasFactory();
-        private AbstractArrow _crntAbstractArrow;
+        IFabric _fabric;
         public Rectangle rectangle = new Rectangle(0, 0, 200, 200);
         private AbstractAllFigurs _carentObject;
         private List<AbstractObjects> objectForm = new List<AbstractObjects>();
-        Pen pen = new Pen(Color.Black, 3);
         private List<AbstractArrow> arrows = new List<AbstractArrow>();
         bool _IsClicked = false;
 
@@ -34,22 +32,20 @@ namespace UmlDesigner
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
-            pictureBox1.Image = _mainBitmap; 
+            pictureBox1.Image = _mainBitmap;
+            comboBoxArrows.SelectedIndex = 1;
+            _fabric = new AssotiationFabric();
         }
 
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             _IsClicked = true;
-            if (_crntAbstractArrow != null)
+            _carentObject = _fabric.GetElement(_pen);
+            if (_carentObject != null)
             {
-                _crntAbstractArrow.StartPoint = e.Location;
+                _carentObject.StartPoint = e.Location;
             }
-
-            _carentObject = _fabricForm.GetElement(pen);
-            _carentObject.StartPoint = e.Location;
-            
-           
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -63,12 +59,7 @@ namespace UmlDesigner
             _tmpBitmap = (Bitmap) _mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
 
-            if (_IsClicked && _crntAbstractArrow!=null)
-            {
-                _crntAbstractArrow.EndPoint = e.Location;
-                _crntAbstractArrow.Draw(_graphics);
-            }
-            if (_IsClicked && _carentObject!=null)
+            if (_IsClicked && _carentObject != null)
             {
                 _carentObject.EndPoint = e.Location;
                 _carentObject.Draw(_graphics);
@@ -79,11 +70,10 @@ namespace UmlDesigner
         private void trackBarSize_Scroll(object sender, EventArgs e)
         {
             EditSizeAndColor();
-          
         }
         private void EditSizeAndColor ()
         {
-            pen = new Pen(colorDialog1.Color, trackBarSize.Value); 
+          _pen = new Pen(colorDialog1.Color, trackBarSize.Value);
         }
 
         private void buttonColor_Click(object sender, EventArgs e)
@@ -94,9 +84,10 @@ namespace UmlDesigner
 
         private void comboBoxArrows_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBoxArrows.SelectedIndex==0)
+            
+            if (comboBoxArrows.SelectedIndex == 0)
             {
-                //_crntAbstractArrow = _fabric.GetArrow(pen);
+                _fabric = new AssotiationFabric();
             }
         }
 
@@ -104,7 +95,7 @@ namespace UmlDesigner
         {
             if (comboBoxForms.SelectedIndex==0)
             {
-                //_carentObject = _fabric.GetObjects();
+                _fabric = new FormsClasFactory();
             }
         }
     }
