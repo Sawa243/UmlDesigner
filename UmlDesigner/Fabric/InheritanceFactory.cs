@@ -6,9 +6,9 @@ using UmlDesigner.Figure.Arrows;
 
 namespace UmlDesigner.Fabric
 {
-    public class InheritanceFactory:IFabric
+    public class InheritanceFactory : IFabric
     {
-        public AbstractArrow GetArrow(Pen pen)
+        public AbstractAllFigurs GetElement(Pen pen)
         {
             return new InheritanceArrow(pen, new Drawing());
         }
