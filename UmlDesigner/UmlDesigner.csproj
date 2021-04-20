@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DrowArea.cs" />
-    <Compile Include="Fabric\AssotiationFabric.cs" />
     <Compile Include="Fabric\FormBlockFactory.cs" />
     <Compile Include="Fabric\AggregationFactory.cs" />
     <Compile Include="Fabric\AssotiationFactory.cs" />

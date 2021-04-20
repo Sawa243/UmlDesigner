@@ -10,7 +10,7 @@ using UmlDesigner.Figure.Forms;
 
 namespace UmlDesigner.Fabric
 {
-    class FormBlockFactory : IFabric
+    class FormBlockFactory : IFactory
     {
         public AbstractAllFigurs GetElement(Pen pen)
         {

@@ -149,11 +149,11 @@ namespace UmlDesigner
         {
             switch (comboBoxForms.SelectedIndex)
             {
-                case 0 :
-                _fabric = new FormsClasFactory();
-            break;
+                case 0:
+                    _factory = new FormsClasFactory();
+                    break;
                 case 1:
-                    _fabric = new FormBlockFactory();
+                    _factory = new FormBlockFactory();
                     break;
             }
         }
