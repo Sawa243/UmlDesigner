@@ -12,6 +12,7 @@ namespace UmlDesigner.Figure
     {
         protected IAction _action;
         protected Pen _pen;
+        public int _figureType;
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
         public AbstractAllFigurs()
