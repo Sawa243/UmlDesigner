@@ -34,8 +34,8 @@ namespace UmlDesigner
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
-            comboBoxArrows.SelectedIndex = 1;
-            _factory = new AssotiationFactory();
+            comboBoxArrows.SelectedIndex = 0;
+            _factory = new AggregationFactory();
         }
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -121,11 +121,11 @@ namespace UmlDesigner
         private void comboBoxArrows_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Aggregation
-            // Association
+            // Association1
             //Composition
             //Inheritance
             //Realization
-            switch (comboBoxArrows.SelectedItem)
+            switch (comboBoxArrows.SelectedIndex)
             {
                 case 0:
                     _factory = new AggregationFactory();
