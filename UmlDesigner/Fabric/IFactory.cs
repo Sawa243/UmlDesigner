@@ -4,7 +4,7 @@ using UmlDesigner.Figure;
 
 namespace UmlDesigner.Fabric
 {
-    interface IFabric
+    interface IFactory
     {
         AbstractAllFigurs GetElement(Pen pen);
     }

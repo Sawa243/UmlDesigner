@@ -10,7 +10,7 @@ using UmlDesigner.Figure.Arrows;
 
 namespace UmlDesigner.Fabric
 {
-    public class AggregationFactory : IFabric
+    public class AggregationFactory : IFactory
     {
         public AbstractAllFigurs GetElement(Pen pen)
         {
