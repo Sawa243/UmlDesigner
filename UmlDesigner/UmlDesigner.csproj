@@ -60,7 +60,9 @@
     <Compile Include="Figure\Action\DrawForms.cs" />
     <Compile Include="Figure\Action\Drawing.cs" />
     <Compile Include="Figure\Action\IAction.cs" />
+    <Compile Include="Figure\Action\IMoveable.cs" />
     <Compile Include="Figure\Arrows\AggregationArrow.cs" />
+    <Compile Include="Figure\Arrows\ArrowType.cs" />
     <Compile Include="Figure\Arrows\AssotiationArrow.cs" />
     <Compile Include="Figure\Arrows\CompositionArrow.cs" />
     <Compile Include="Figure\Arrows\InheritanceArrow.cs" />
