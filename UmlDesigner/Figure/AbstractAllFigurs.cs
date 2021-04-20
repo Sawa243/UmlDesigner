@@ -29,6 +29,12 @@ namespace UmlDesigner.Figure
             int yMax;
             int yMin;
 
+            //if (GetPoints().Contains(point))
+            //{
+            //    return true;
+            //}
+            //return false;
+
             if (StartPoint.X > EndPoint.X)
             {
                 xMax = StartPoint.X;
