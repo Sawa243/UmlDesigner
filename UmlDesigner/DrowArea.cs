@@ -14,7 +14,7 @@ namespace UmlDesigner
         {
 
         }
-        public static DrowArea GetLake()
+        public static DrowArea GetAreaObjects()
         {
             if (_drow is null)
             {

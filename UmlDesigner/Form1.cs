@@ -18,8 +18,9 @@ namespace UmlDesigner
         List<Point> points = new List<Point>();
         IFabric _fabric;
         private AbstractAllFigurs _carentObject;
-        private List<AbstractObjects> objectForm = new List<AbstractObjects>();
-        private List<AbstractArrow> arrows = new List<AbstractArrow>();
+        private List<AbstractAllFigurs> objects = new List<AbstractAllFigurs>();
+        //private List<AbstractObjects> objectForm = new List<AbstractObjects>();
+        //private List<AbstractArrow> arrows = new List<AbstractArrow>();
         bool _IsClicked = false;
 
         public Form1()
@@ -44,7 +45,9 @@ namespace UmlDesigner
             _carentObject = _fabric.GetElement(_pen);
             
                 _carentObject.StartPoint = e.Location;
-            
+                objects.Add(_carentObject);
+
+
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
