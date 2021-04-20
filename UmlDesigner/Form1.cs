@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using UmlDesigner.Fabric;
 using UmlDesigner.Figure;
-using UmlDesigner.Figure.Arrows;
 
 
 namespace UmlDesigner
@@ -14,19 +13,21 @@ namespace UmlDesigner
         Bitmap _mainBitmap;
         Bitmap _tmpBitmap;
         public Graphics _graphics;
-        Pen _pen = new Pen(Color.Red,4);
+        Pen _pen = new Pen(Color.Red, 4);
         List<Point> points = new List<Point>();
-        IFabric _fabric;
+        IFactory _factory;
         private AbstractAllFigurs _carentObject;
-        private List<AbstractObjects> objectForm = new List<AbstractObjects>();
-        private List<AbstractArrow> arrows = new List<AbstractArrow>();
+        private List<AbstractAllFigurs> _allFigurs = new List<AbstractAllFigurs>();
+        //private List<AbstractObjects> objectForm = new List<AbstractObjects>();
+        //private List<AbstractArrow> arrows = new List<AbstractArrow>();
         bool _IsClicked = false;
+        bool _IsMove = false;
+        Point pointDelta;
 
         public Form1()
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -34,69 +35,131 @@ namespace UmlDesigner
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
             comboBoxArrows.SelectedIndex = 1;
-            _fabric = new AssotiationFabric();
+            _factory = new AssotiationFactory();
         }
-
-
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             _IsClicked = true;
-            _carentObject = _fabric.GetElement(_pen);
-            if (_carentObject != null)
+            _carentObject = _factory.GetElement(_pen);
+            if (_IsMove)
             {
-                _carentObject.StartPoint = e.Location;
+                foreach (AbstractAllFigurs a in _allFigurs)
+                {
+                    if (a.IsItMe(e.Location))
+                    {
+                        _carentObject = a;
+                        break;
+                    }
+                }
+                if (_carentObject != null)
+                {
+                    _allFigurs.Remove(_carentObject);
+
+                    _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    _graphics = Graphics.FromImage(_mainBitmap);
+                    _graphics.Clear(Color.White);
+
+                    foreach (AbstractAllFigurs a in _allFigurs)
+                    {
+                        a.Draw(_graphics);
+                    }
+
+                    pictureBox1.Image = _mainBitmap;
+
+                    pointDelta = e.Location;
+                }
+            }
+            else
+            {
+                if (_carentObject != null)
+                {
+                    _carentObject.StartPoint = e.Location;
+                }
             }
         }
-
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-           _IsClicked = false;
-           _mainBitmap = _tmpBitmap;
+            _IsClicked = false;
+            _mainBitmap = _tmpBitmap;
+            _allFigurs.Add(_carentObject);
         }
-
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            _tmpBitmap = (Bitmap) _mainBitmap.Clone();
+            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
 
             if (_IsClicked && _carentObject != null)
             {
-                _carentObject.EndPoint = e.Location;
+                if (_IsMove)
+                {
+                    _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y);
+                    pointDelta = e.Location;
+                }
+                else
+                {
+                    _carentObject.EndPoint = e.Location;
+                }
+
                 _carentObject.Draw(_graphics);
             }
             pictureBox1.Image = _tmpBitmap;
+            GC.Collect();
         }
-
         private void trackBarSize_Scroll(object sender, EventArgs e)
         {
             EditSizeAndColor();
         }
-        private void EditSizeAndColor ()
+        private void EditSizeAndColor()
         {
-          _pen = new Pen(colorDialog1.Color, trackBarSize.Value);
+            _pen = new Pen(colorDialog1.Color, trackBarSize.Value);
         }
-
         private void buttonColor_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
             EditSizeAndColor();
         }
-
         private void comboBoxArrows_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            if (comboBoxArrows.SelectedIndex == 0)
+            //Aggregation
+            // Association
+            //Composition
+            //Inheritance
+            //Realization
+            switch (comboBoxArrows.SelectedItem)
             {
-                _fabric = new AssotiationFabric();
+                case 0:
+                    _factory = new AggregationFactory();
+                    break;
+                case 1:
+                    _factory = new AssotiationFactory();
+                    break;
+                case 2:
+                    _factory = new CompositionFactory();
+                    break;
+                case 3:
+                    _factory = new InheritanceFactory();
+                    break;
+                case 4:
+                    _factory = new RealizationFactory();
+                    break;
             }
         }
-
         private void comboBoxForms_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxForms.SelectedIndex==0)
+            switch (comboBoxForms.SelectedIndex)
             {
-                _fabric = new FormsClasFactory();
+                case 0:
+                    _factory = new FormsClasFactory();
+                    break;
+                //case 1:
+                //    _factory = new FormBlockFactory();
+                //    break;
             }
+        }
+        private void buttonMove_Click(object sender, EventArgs e)
+        {
+            _carentObject = null;
+            _IsMove = true;
         }
     }
 }

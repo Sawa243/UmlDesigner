@@ -22,7 +22,7 @@ namespace UmlDesigner.Figure
 
         public abstract void  Draw(Graphics graphics);
 
-        public bool IsItYou(Point point)
+        public bool IsItMe(Point point)
         {
             int xMax;
             int xMin;
