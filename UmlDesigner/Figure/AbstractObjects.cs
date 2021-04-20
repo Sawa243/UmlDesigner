@@ -11,6 +11,7 @@ namespace UmlDesigner.Figure
 {
    public abstract class AbstractObjects: AbstractAllFigurs
     {
+        
         public AbstractObjects()
         {
             _action = new DrawForms();

@@ -40,6 +40,7 @@ namespace UmlDesigner
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             _IsClicked = true;
+            _pen = new Pen(colorDialog1.Color, trackBarSize.Value);
             _carentObject = _factory.GetElement(_pen);
             if (_IsMove)
             {
@@ -148,12 +149,12 @@ namespace UmlDesigner
         {
             switch (comboBoxForms.SelectedIndex)
             {
-                case 0:
-                    _factory = new FormsClasFactory();
+                case 0 :
+                _fabric = new FormsClasFactory();
+            break;
+                case 1:
+                    _fabric = new FormBlockFactory();
                     break;
-                //case 1:
-                //    _factory = new FormBlockFactory();
-                //    break;
             }
         }
         private void buttonMove_Click(object sender, EventArgs e)

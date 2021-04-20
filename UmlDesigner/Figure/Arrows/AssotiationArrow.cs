@@ -12,7 +12,7 @@ namespace UmlDesigner.Figure
         {
             _action = action;
             _pen = pen;
-            pen.CustomEndCap = new AdjustableArrowCap(5, 5);
+            _pen.CustomEndCap = new AdjustableArrowCap(5, 5);
         }
     }
 }
