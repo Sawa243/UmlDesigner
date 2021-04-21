@@ -169,9 +169,20 @@ namespace UmlDesigner
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            //_graphics = Graphics.FromImage(_mainBitmap);
+            _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             _allFigurs.Clear();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            _allFigurs.RemoveAt(_allFigurs.Count - 1);
+            _graphics = Graphics.FromImage(_mainBitmap);
+            _graphics.Clear(Color.White);
+            foreach (AbstractAllFigurs a in _allFigurs)
+            {
+                a.Draw(_graphics);
+            }
         }
     }
 }
