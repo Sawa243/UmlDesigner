@@ -49,7 +49,6 @@ namespace UmlDesigner
         {
            _IsClicked = false;
            _mainBitmap = _tmpBitmap;
-           
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -57,7 +56,7 @@ namespace UmlDesigner
             _tmpBitmap = (Bitmap) _mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
 
-            if (_IsClicked && _carentObject != null)
+            if (_IsClicked)
             {
                 _carentObject.EndPoint = e.Location;
                 _carentObject.Draw(_graphics);
