@@ -20,7 +20,6 @@ namespace UmlDesigner.Figure
             _action = new Drawing();
         }
         protected abstract List<Point> GetPoints();
-
         public abstract void  Draw(Graphics graphics);
 
         public bool IsItMe(Point point)

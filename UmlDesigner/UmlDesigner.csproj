@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="DrowArea.cs" />
     <Compile Include="Fabric\FormBlockFactory.cs" />
+    <Compile Include="Fabric\FormInterfaceFactory.cs" />
+    <Compile Include="Fabric\FormObjectFactory.cs" />
     <Compile Include="Fabric\AggregationFactory.cs" />
     <Compile Include="Fabric\AssotiationFactory.cs" />
     <Compile Include="Fabric\CompositionFactory.cs" />
@@ -70,6 +72,8 @@
     <Compile Include="Figure\Arrows\RealizationArrow.cs" />
     <Compile Include="Figure\Forms\FormBlock.cs" />
     <Compile Include="Figure\Forms\FormClass.cs" />
+    <Compile Include="Figure\Forms\FormInterface.cs" />
+    <Compile Include="Figure\Forms\FormObject.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
