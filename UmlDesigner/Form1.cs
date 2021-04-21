@@ -148,16 +148,16 @@ namespace UmlDesigner
             switch (comboBoxForms.SelectedIndex)
             {
                 case 1 :
-                _fabric = new FormsClasFactory();
+                _factory = new FormsClasFactory();
             break;
                 case 0:
-                    _fabric = new FormBlockFactory();
+                    _factory = new FormBlockFactory();
                     break;
                 case 2:
-                    _fabric = new FormInterfaceFactory();
+                    _factory = new FormInterfaceFactory();
                     break;
                 case 3:
-                    _fabric = new FormObjectFactory();
+                    _factory = new FormObjectFactory();
                     break;
             }
         }
@@ -169,8 +169,9 @@ namespace UmlDesigner
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            _graphics = Graphics.FromImage(_mainBitmap);
+            //_graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
+            _allFigurs.Clear();
         }
     }
 }
