@@ -49,6 +49,8 @@
     <Compile Include="DrowArea.cs" />
     <Compile Include="Fabric\AssotiationFabric.cs" />
     <Compile Include="Fabric\FormBlockFactory.cs" />
+    <Compile Include="Fabric\FormInterfaceFactory.cs" />
+    <Compile Include="Fabric\FormObjectFactory.cs" />
     <Compile Include="Fabric\FormsClasFactory.cs" />
     <Compile Include="Fabric\IFabric.cs" />
     <Compile Include="Figure\AbstractAllFigurs.cs" />
@@ -60,6 +62,8 @@
     <Compile Include="Figure\Arrows\AssotiationArrow.cs" />
     <Compile Include="Figure\Forms\FormBlock.cs" />
     <Compile Include="Figure\Forms\FormClass.cs" />
+    <Compile Include="Figure\Forms\FormInterface.cs" />
+    <Compile Include="Figure\Forms\FormObject.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

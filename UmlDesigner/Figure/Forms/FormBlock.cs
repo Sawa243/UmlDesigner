@@ -15,5 +15,6 @@ namespace UmlDesigner.Figure.Forms
             _action = action;
             _pen = pen;
         }
+
     }
 }

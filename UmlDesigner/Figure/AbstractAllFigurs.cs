@@ -21,6 +21,7 @@ namespace UmlDesigner.Figure
         protected abstract List<Point> GetPoints();
 
         public abstract void  Draw(Graphics graphics);
-       
+
+
     }
 }

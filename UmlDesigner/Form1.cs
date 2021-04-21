@@ -49,6 +49,7 @@ namespace UmlDesigner
         {
            _IsClicked = false;
            _mainBitmap = _tmpBitmap;
+           
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -92,13 +93,25 @@ namespace UmlDesigner
         {
             switch (comboBoxForms.SelectedIndex)
             {
-                case 0 :
+                case 1 :
                 _fabric = new FormsClasFactory();
             break;
-                case 1:
+                case 0:
                     _fabric = new FormBlockFactory();
                     break;
+                case 2:
+                    _fabric = new FormInterfaceFactory();
+                    break;
+                case 3:
+                    _fabric = new FormObjectFactory();
+                    break;
             }
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            _graphics = Graphics.FromImage(_mainBitmap);
+            _graphics.Clear(Color.White);
         }
     }
 }

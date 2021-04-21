@@ -29,5 +29,6 @@ namespace UmlDesigner.Figure
         {
             _action.Draw(graphics, _pen, GetPoints());
         }
+
     }
 }
