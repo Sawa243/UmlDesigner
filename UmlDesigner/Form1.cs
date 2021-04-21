@@ -18,8 +18,6 @@ namespace UmlDesigner
         IFactory _factory;
         private AbstractAllFigurs _carentObject;
         private List<AbstractAllFigurs> _allFigurs = new List<AbstractAllFigurs>();
-        //private List<AbstractObjects> objectForm = new List<AbstractObjects>();
-        //private List<AbstractArrow> arrows = new List<AbstractArrow>();
         bool _IsClicked = false;
         bool _IsMove = false;
         Point pointDelta;
