@@ -87,7 +87,7 @@ namespace UmlDesigner
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
 
-            if (_IsClicked && _carentObject != null)
+            if (_IsClicked)
             {
                 if (_IsMove)
                 {
