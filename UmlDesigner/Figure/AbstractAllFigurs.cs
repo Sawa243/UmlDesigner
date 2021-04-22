@@ -15,14 +15,16 @@ namespace UmlDesigner.Figure
         public int _figureType;
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
+
         public AbstractAllFigurs()
         {
             _action = new Drawing();
         }
+
         protected abstract List<Point> GetPoints();
         public abstract void  Draw(Graphics graphics);
 
-        public bool IsItMe(Point point)
+        public bool DefineFigure(Point point)
         {
             int xMax;
             int xMin;

@@ -44,13 +44,13 @@ namespace UmlDesigner
             {
                 foreach (AbstractAllFigurs a in _allFigurs)
                 {
-                    if (a.IsItMe(e.Location))
+                    if (a.DefineFigure(e.Location))
                     {
                         _carentObject = a;
                         break;
                     }
                 }
-                if (_carentObject != null)
+                if (_carentObject != null && _carentObject._figureType == 0)
                 {
                     _allFigurs.Remove(_carentObject);
                     _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
