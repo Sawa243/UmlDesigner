@@ -44,7 +44,7 @@ namespace UmlDesigner
             {
                 foreach (AbstractAllFigurs a in _allFigurs)
                 {
-                    if (a.IsItMe(e.Location))
+                    if (a.MyCoordinates(e.Location))
                     {
                         _carentObject = a;
                         break;

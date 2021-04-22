@@ -22,7 +22,7 @@ namespace UmlDesigner.Figure
         protected abstract List<Point> GetPoints();
         public abstract void  Draw(Graphics graphics);
 
-        public bool IsItMe(Point point)
+        public bool MyCoordinates(Point point)
         {
             int xMax;
             int xMin;
