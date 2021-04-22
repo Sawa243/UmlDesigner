@@ -14,7 +14,6 @@ namespace UmlDesigner
         Bitmap _tmpBitmap;
         public Graphics _graphics;
         Pen _pen = new Pen(Color.Red, 4);
-        List<Point> points = new List<Point>();
         IFactory _factory;
         private AbstractAllFigurs _carentObject;
         private List<AbstractAllFigurs> _allFigurs = new List<AbstractAllFigurs>();
@@ -40,6 +39,7 @@ namespace UmlDesigner
             _IsClicked = true;
             _pen = new Pen(colorDialog1.Color, trackBarSize.Value);
             _carentObject = _factory.GetElement(_pen);
+
             if (_IsMove)
             {
                 foreach (AbstractAllFigurs a in _allFigurs)
@@ -53,7 +53,6 @@ namespace UmlDesigner
                 if (_carentObject != null)
                 {
                     _allFigurs.Remove(_carentObject);
-
                     _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     _graphics = Graphics.FromImage(_mainBitmap);
                     _graphics.Clear(Color.White);
@@ -62,9 +61,7 @@ namespace UmlDesigner
                     {
                         a.Draw(_graphics);
                     }
-
                     pictureBox1.Image = _mainBitmap;
-
                     pointDelta = e.Location;
                 }
             }
@@ -81,24 +78,28 @@ namespace UmlDesigner
             _IsClicked = false;
             _mainBitmap = _tmpBitmap;
             _allFigurs.Add(_carentObject);
+            if (_IsMove)
+            { _IsMove = false;
+              buttonMove.Text = "Move:of";
+            }
         }
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
-
             if (_IsClicked)
             {
-                if (_IsMove)
+                if (_IsMove && _carentObject != null)
                 {
                     _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y);
                     pointDelta = e.Location;
+                    buttonMove.Text = "Move:on";
                 }
                 else
                 {
+                    buttonMove.Text = "Move:of";
                     _carentObject.EndPoint = e.Location;
                 }
-
                 _carentObject.Draw(_graphics);
             }
             pictureBox1.Image = _tmpBitmap;
@@ -119,11 +120,6 @@ namespace UmlDesigner
         }
         private void comboBoxArrows_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Aggregation
-            // Association1
-            //Composition
-            //Inheritance
-            //Realization
             switch (comboBoxArrows.SelectedIndex)
             {
                 case 0:
@@ -165,12 +161,15 @@ namespace UmlDesigner
         {
             _carentObject = null;
             _IsMove = true;
+            buttonMove.Text = "Move:on";
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
+            _tmpBitmap = _mainBitmap;
+            pictureBox1.Image = _tmpBitmap;
             _allFigurs.Clear();
         }
 
@@ -179,6 +178,7 @@ namespace UmlDesigner
             _allFigurs.RemoveAt(_allFigurs.Count - 1);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
+            pictureBox1.Image = _mainBitmap;
             foreach (AbstractAllFigurs a in _allFigurs)
             {
                 a.Draw(_graphics);
