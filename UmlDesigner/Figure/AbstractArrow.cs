@@ -15,7 +15,7 @@ namespace UmlDesigner.Figure
         public AbstractArrow()
         {
             _action = new Drawing();
-            _figureType = 1;
+            _figureType = FigureType.Arrow;
         }
         protected override List<Point> GetPoints()
         {

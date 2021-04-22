@@ -37,8 +37,6 @@ namespace UmlDesigner
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             _IsClicked = true;
-            _pen = new Pen(colorDialog1.Color, trackBarSize.Value);
-            _carentObject = _factory.GetElement(_pen);
 
             if (_isMove)
             {
@@ -50,7 +48,7 @@ namespace UmlDesigner
                         break;
                     }
                 }
-                if (_carentObject != null && _carentObject._figureType == 0)
+                if (_carentObject != null && _carentObject._figureType == FigureType.Arrow)
                 {
                     _allFigurs.Remove(_carentObject);
                     _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -67,8 +65,10 @@ namespace UmlDesigner
             }
             else
             {
-                if (_carentObject != null)
+                if (_carentObject == null)
                 {
+                    _pen = new Pen(colorDialog1.Color, trackBarSize.Value);
+                    _carentObject = _factory.GetElement(_pen);
                     _carentObject.StartPoint = e.Location;
                 }
             }
@@ -78,10 +78,8 @@ namespace UmlDesigner
             _IsClicked = false;
             _mainBitmap = _tmpBitmap;
             _allFigurs.Add(_carentObject);
-            if (_isMove)
-            { _isMove = false;
-              buttonMove.Text = "Move:of";
-            }
+            _carentObject = null;
+            
         }
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -93,11 +91,10 @@ namespace UmlDesigner
                 {
                     _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y);
                     pointDelta = e.Location;
-                    buttonMove.Text = "Move:on";
+                    //buttonMove.Text = "Move:on";
                 }
                 else
                 {
-                    buttonMove.Text = "Move:of";
                     _carentObject.EndPoint = e.Location;
                 }
                 _carentObject.Draw(_graphics);
