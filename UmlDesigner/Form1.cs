@@ -91,7 +91,7 @@ namespace UmlDesigner
             {
                 if (_IsMove && _carentObject != null)
                 {
-                    _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y);
+                    _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y,_carentObject.StartPoint,_carentObject.EndPoint);
                     pointDelta = e.Location;
                     buttonMove.Text = "Move:on";
                 }

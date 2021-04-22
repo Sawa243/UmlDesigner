@@ -61,10 +61,10 @@ namespace UmlDesigner.Figure
             }
         }
 
-        public void Move(int deltaX, int deltaY)
+        public void Move(int deltaX, int deltaY, Point Start, Point End)
         {
-            StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
-            EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
+            EndPoint = new Point(End.X + deltaX, End.Y + deltaY);
+            StartPoint = new Point(Start.X + deltaX, Start.Y + deltaY);
         }
 
     }

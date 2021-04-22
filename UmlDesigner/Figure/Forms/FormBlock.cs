@@ -14,6 +14,7 @@ namespace UmlDesigner.Figure.Forms
         {
             _action = action;
             _pen = pen;
+            StartPoint = new Point(EndPoint.X + 150, EndPoint.Y + 200);
         }
     }
 }
