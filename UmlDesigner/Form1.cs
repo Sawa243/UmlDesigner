@@ -18,7 +18,7 @@ namespace UmlDesigner
         private AbstractAllFigurs _carentObject;
         private List<AbstractAllFigurs> _allFigurs = new List<AbstractAllFigurs>();
         bool _IsClicked = false;
-        bool _IsMove = false;
+        bool _isMove = false;
         Point pointDelta;
 
         public Form1()
@@ -40,7 +40,7 @@ namespace UmlDesigner
             _pen = new Pen(colorDialog1.Color, trackBarSize.Value);
             _carentObject = _factory.GetElement(_pen);
 
-            if (_IsMove)
+            if (_isMove)
             {
                 foreach (AbstractAllFigurs a in _allFigurs)
                 {
@@ -78,8 +78,8 @@ namespace UmlDesigner
             _IsClicked = false;
             _mainBitmap = _tmpBitmap;
             _allFigurs.Add(_carentObject);
-            if (_IsMove)
-            { _IsMove = false;
+            if (_isMove)
+            { _isMove = false;
               buttonMove.Text = "Move:of";
             }
         }
@@ -89,7 +89,7 @@ namespace UmlDesigner
             _graphics = Graphics.FromImage(_tmpBitmap);
             if (_IsClicked)
             {
-                if (_IsMove && _carentObject != null)
+                if (_isMove && _carentObject != null)
                 {
                     _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y);
                     pointDelta = e.Location;
@@ -160,17 +160,17 @@ namespace UmlDesigner
         private void buttonMove_Click(object sender, EventArgs e)
         {
             _carentObject = null;
-            _IsMove = true;
-            buttonMove.Text = "Move:on";
+            _isMove = _isMove == false ? true : false;
+            buttonMove.Text = _isMove == true ? "Move:on" : "Move:off";
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
+            _allFigurs.Clear();
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             _tmpBitmap = _mainBitmap;
             pictureBox1.Image = _tmpBitmap;
-            _allFigurs.Clear();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
