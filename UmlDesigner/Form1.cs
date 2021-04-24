@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using UmlDesigner.Fabric;
 using UmlDesigner.Figure;
-
+using UmlDesigner.Figure.Forms;
 
 namespace UmlDesigner
 {
@@ -20,6 +20,7 @@ namespace UmlDesigner
         bool _IsClicked = false;
         bool _IsMove = false;
         Point pointDelta;
+        //string _text;
 
         public Form1()
         {
@@ -175,6 +176,8 @@ namespace UmlDesigner
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
+            if(_allFigurs.Count>0)
+            {
             _allFigurs.RemoveAt(_allFigurs.Count - 1);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
@@ -182,6 +185,26 @@ namespace UmlDesigner
             foreach (AbstractAllFigurs a in _allFigurs)
             {
                 a.Draw(_graphics);
+                a.TextRedactor(_graphics,_pen,a.EndPoint);
+            }
+            }
+        }
+
+        private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            _carentObject.Text = "";
+            foreach (AbstractAllFigurs a in _allFigurs)
+            {
+                if (a.MyCoordinates(e.Location))
+                {
+                    _carentObject = a;
+                    break;
+                }
+            }
+            if (_carentObject.EndPoint != new Point(0,0))
+            {
+            _carentObject.Text = _carentObject.Text + " " + Microsoft.VisualBasic.Interaction.InputBox("Введите текст:");
+            _carentObject.TextRedactor(_graphics,_pen,_carentObject.EndPoint);
             }
         }
     }
