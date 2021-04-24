@@ -20,7 +20,7 @@ namespace UmlDesigner
         bool _IsClicked = false;
         bool _IsMove = false;
         Point pointDelta;
-        //string _text;
+       
 
         public Form1()
         {
@@ -78,7 +78,7 @@ namespace UmlDesigner
         {
             _IsClicked = false;
             _mainBitmap = _tmpBitmap;
-            _allFigurs.Add(_carentObject);
+           //_allFigurs.Add(_carentObject);
             if (_IsMove)
             { _IsMove = false;
               buttonMove.Text = "Move:of";
@@ -94,6 +94,7 @@ namespace UmlDesigner
                 {
                     _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y,_carentObject.StartPoint,_carentObject.EndPoint);
                     pointDelta = e.Location;
+                    _carentObject.TextRedactor(_graphics,_pen,_carentObject.EndPoint);
                     buttonMove.Text = "Move:on";
                 }
                 else
@@ -192,6 +193,7 @@ namespace UmlDesigner
 
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+
             _carentObject.Text = "";
             foreach (AbstractAllFigurs a in _allFigurs)
             {
@@ -201,7 +203,7 @@ namespace UmlDesigner
                     break;
                 }
             }
-            if (_carentObject.EndPoint != new Point(0,0))
+            if (_carentObject.EndPoint != new Point(0,0) && _carentObject._figureType==0)
             {
             _carentObject.Text = _carentObject.Text + " " + Microsoft.VisualBasic.Interaction.InputBox("Введите текст:");
             _carentObject.TextRedactor(_graphics,_pen,_carentObject.EndPoint);
