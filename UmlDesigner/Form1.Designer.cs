@@ -42,8 +42,10 @@ namespace UmlDesigner
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonMove = new System.Windows.Forms.Button();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -53,6 +55,7 @@ namespace UmlDesigner
             this.pictureBox1.Size = new System.Drawing.Size(1256, 724);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDoubleClick);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
@@ -65,7 +68,7 @@ namespace UmlDesigner
             this.trackBarSize.Minimum = 2;
             this.trackBarSize.Name = "trackBarSize";
             this.trackBarSize.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarSize.Size = new System.Drawing.Size(69, 145);
+            this.trackBarSize.Size = new System.Drawing.Size(45, 145);
             this.trackBarSize.TabIndex = 1;
             this.trackBarSize.Value = 6;
             this.trackBarSize.Scroll += new System.EventHandler(this.trackBarSize_Scroll);
@@ -92,7 +95,7 @@ namespace UmlDesigner
             "Realization "});
             this.comboBoxArrows.Location = new System.Drawing.Point(5, 45);
             this.comboBoxArrows.Name = "comboBoxArrows";
-            this.comboBoxArrows.Size = new System.Drawing.Size(121, 38);
+            this.comboBoxArrows.Size = new System.Drawing.Size(121, 28);
             this.comboBoxArrows.TabIndex = 3;
             this.comboBoxArrows.SelectedIndexChanged += new System.EventHandler(this.comboBoxArrows_SelectedIndexChanged);
             // 
@@ -107,7 +110,7 @@ namespace UmlDesigner
             "Object"});
             this.comboBoxForms.Location = new System.Drawing.Point(5, 123);
             this.comboBoxForms.Name = "comboBoxForms";
-            this.comboBoxForms.Size = new System.Drawing.Size(121, 38);
+            this.comboBoxForms.Size = new System.Drawing.Size(121, 28);
             this.comboBoxForms.TabIndex = 4;
             this.comboBoxForms.SelectedIndexChanged += new System.EventHandler(this.comboBoxForms_SelectedIndexChanged);
             // 
@@ -117,7 +120,7 @@ namespace UmlDesigner
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(24, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 45);
+            this.label1.Size = new System.Drawing.Size(77, 30);
             this.label1.TabIndex = 5;
             this.label1.Text = "Arrows";
             // 
@@ -127,7 +130,7 @@ namespace UmlDesigner
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(24, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 45);
+            this.label2.Size = new System.Drawing.Size(69, 30);
             this.label2.TabIndex = 6;
             this.label2.Text = "Forms";
             // 
@@ -184,6 +187,11 @@ namespace UmlDesigner
             this.buttonMove.UseVisualStyleBackColor = true;
             this.buttonMove.Click += new System.EventHandler(this.buttonMove_Click);
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +214,7 @@ namespace UmlDesigner
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,6 +235,7 @@ namespace UmlDesigner
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button buttonMove;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
 
