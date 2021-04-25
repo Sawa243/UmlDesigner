@@ -80,7 +80,7 @@ namespace UmlDesigner
             _allFigurs.Add(_carentObject);
             if (_IsMove)
             { _IsMove = false;
-              buttonMove.Text = "Move:of";
+              buttonMove.Text = "Move: off";
             }
         }
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -93,11 +93,11 @@ namespace UmlDesigner
                 {
                     _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y);
                     pointDelta = e.Location;
-                    buttonMove.Text = "Move:on";
+                    buttonMove.Text = "Move: on";
                 }
                 else
                 {
-                    buttonMove.Text = "Move:of";
+                    buttonMove.Text = "Move: off";
                     _carentObject.EndPoint = e.Location;
                 }
                 _carentObject.Draw(_graphics);
@@ -161,7 +161,7 @@ namespace UmlDesigner
         {
             _carentObject = null;
             _IsMove = true;
-            buttonMove.Text = "Move:on";
+            buttonMove.Text = "Move: on";
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
