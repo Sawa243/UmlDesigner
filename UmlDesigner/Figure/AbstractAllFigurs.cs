@@ -26,7 +26,65 @@ namespace UmlDesigner.Figure
         }
         protected abstract List<Point> GetPoints();
         public abstract void Draw(Graphics graphics);
-        public abstract bool IsInclude(Point point);
+        public bool IsInclude(Point point)
+        {
+            int delta = 5;
+
+            Point pointHead;
+            Point pointNext;
+
+            for (int i = 0; i < GetPoints().Count - 1; i++)
+            {
+                pointHead = (Point)GetPoints().ToArray().GetValue(i);
+                pointNext = (Point)GetPoints().ToArray().GetValue(i + 1);
+
+                if (pointHead.X >= pointNext.X
+                && pointHead.Y >= pointNext.Y)
+                {
+                    if (point.X >= pointNext.X - delta
+                    && point.X <= pointHead.X + delta
+                    && point.Y >= pointNext.Y - delta
+                    && point.Y <= pointHead.Y + delta)
+                    {
+                        return true;
+                    }
+                }
+                if (pointHead.X >= pointNext.X
+                && pointHead.Y <= pointNext.Y)
+                {
+                    if (point.X >= pointNext.X - delta
+                    && point.X <= pointHead.X + delta
+                    && point.Y >= pointHead.Y - delta
+                    && point.Y <= pointNext.Y + delta)
+                    {
+                        return true;
+                    }
+                }
+                if (pointHead.X <= pointNext.X
+                && pointHead.Y >= pointNext.Y)
+                {
+                    if (point.X >= pointHead.X - delta
+                    && point.X <= pointNext.X + delta
+                    && point.Y >= pointNext.Y - delta
+                    && point.Y <= pointHead.Y + delta)
+                    {
+                        return true;
+                    }
+                }
+                if (pointHead.X <= pointNext.X
+                && pointHead.Y <= pointNext.Y)
+                {
+                    if (point.X >= pointHead.X - delta
+                    && point.X <= pointNext.X + delta
+                    && point.Y >= pointHead.Y - delta
+                    && point.Y <= pointNext.Y + delta)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
         public void Move(int deltaX, int deltaY)
         {
             StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
