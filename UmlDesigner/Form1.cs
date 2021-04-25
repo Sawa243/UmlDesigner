@@ -78,7 +78,11 @@ namespace UmlDesigner
         {
             _IsClicked = false;
             _mainBitmap = _tmpBitmap;
+
+
            //_allFigurs.Add(_carentObject);
+
+
             if (_IsMove)
             { _IsMove = false;
               buttonMove.Text = "Move:of";
