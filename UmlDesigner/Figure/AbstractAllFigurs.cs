@@ -18,7 +18,7 @@ namespace UmlDesigner.Figure
 
         public AbstractAllFigurs()
         {
-            _action = new Drawing();
+            //_action = new Drawing();
         }
 
         protected abstract List<Point> GetPoints();

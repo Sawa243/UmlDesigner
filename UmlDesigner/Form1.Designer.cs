@@ -29,6 +29,7 @@ namespace UmlDesigner
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.trackBarSize = new System.Windows.Forms.TrackBar();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
@@ -42,6 +43,11 @@ namespace UmlDesigner
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonMove = new System.Windows.Forms.Button();
+            this.Download = new System.Windows.Forms.Button();
+            this.Save = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.SaveImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarSize)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +71,7 @@ namespace UmlDesigner
             this.trackBarSize.Minimum = 2;
             this.trackBarSize.Name = "trackBarSize";
             this.trackBarSize.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarSize.Size = new System.Drawing.Size(69, 145);
+            this.trackBarSize.Size = new System.Drawing.Size(45, 145);
             this.trackBarSize.TabIndex = 1;
             this.trackBarSize.Value = 6;
             this.trackBarSize.Scroll += new System.EventHandler(this.trackBarSize_Scroll);
@@ -92,7 +98,7 @@ namespace UmlDesigner
             "Realization "});
             this.comboBoxArrows.Location = new System.Drawing.Point(5, 45);
             this.comboBoxArrows.Name = "comboBoxArrows";
-            this.comboBoxArrows.Size = new System.Drawing.Size(121, 38);
+            this.comboBoxArrows.Size = new System.Drawing.Size(121, 28);
             this.comboBoxArrows.TabIndex = 3;
             this.comboBoxArrows.SelectedIndexChanged += new System.EventHandler(this.comboBoxArrows_SelectedIndexChanged);
             // 
@@ -107,7 +113,7 @@ namespace UmlDesigner
             "Object"});
             this.comboBoxForms.Location = new System.Drawing.Point(5, 123);
             this.comboBoxForms.Name = "comboBoxForms";
-            this.comboBoxForms.Size = new System.Drawing.Size(121, 38);
+            this.comboBoxForms.Size = new System.Drawing.Size(121, 28);
             this.comboBoxForms.TabIndex = 4;
             this.comboBoxForms.SelectedIndexChanged += new System.EventHandler(this.comboBoxForms_SelectedIndexChanged);
             // 
@@ -117,7 +123,7 @@ namespace UmlDesigner
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(24, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 45);
+            this.label1.Size = new System.Drawing.Size(77, 30);
             this.label1.TabIndex = 5;
             this.label1.Text = "Arrows";
             // 
@@ -127,7 +133,7 @@ namespace UmlDesigner
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(24, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 45);
+            this.label2.Size = new System.Drawing.Size(69, 30);
             this.label2.TabIndex = 6;
             this.label2.Text = "Forms";
             // 
@@ -184,11 +190,56 @@ namespace UmlDesigner
             this.buttonMove.UseVisualStyleBackColor = true;
             this.buttonMove.Click += new System.EventHandler(this.buttonMove_Click);
             // 
+            // Download
+            // 
+            this.Download.Location = new System.Drawing.Point(64, 647);
+            this.Download.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Download.Name = "Download";
+            this.Download.Size = new System.Drawing.Size(63, 28);
+            this.Download.TabIndex = 13;
+            this.Download.Text = "Download";
+            this.Download.UseVisualStyleBackColor = true;
+            this.Download.Click += new System.EventHandler(this.Download_Click);
+            // 
+            // Save
+            // 
+            this.Save.Location = new System.Drawing.Point(5, 647);
+            this.Save.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(63, 27);
+            this.Save.TabIndex = 14;
+            this.Save.Text = "Save";
+            this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "\"Png files|*.png|Text files|*.txt\".";
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
+            // SaveImage
+            // 
+            this.SaveImage.Location = new System.Drawing.Point(5, 619);
+            this.SaveImage.Name = "SaveImage";
+            this.SaveImage.Size = new System.Drawing.Size(121, 23);
+            this.SaveImage.TabIndex = 15;
+            this.SaveImage.Text = "Save as image";
+            this.SaveImage.UseVisualStyleBackColor = true;
+            this.SaveImage.Click += new System.EventHandler(this.SaveImage_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1396, 822);
+            this.ClientSize = new System.Drawing.Size(1283, 682);
+            this.Controls.Add(this.SaveImage);
+            this.Controls.Add(this.Save);
+            this.Controls.Add(this.Download);
             this.Controls.Add(this.buttonMove);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonSave);
@@ -201,6 +252,7 @@ namespace UmlDesigner
             this.Controls.Add(this.buttonColor);
             this.Controls.Add(this.trackBarSize);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -226,6 +278,11 @@ namespace UmlDesigner
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button buttonMove;
+        private System.Windows.Forms.Button Download;
+        private System.Windows.Forms.Button Save;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button SaveImage;
     }
 }
 

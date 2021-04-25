@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 using UmlDesigner.Fabric;
 using UmlDesigner.Figure;
+using Newtonsoft.Json;
+using System.IO;
 
 
 namespace UmlDesigner
@@ -48,7 +51,7 @@ namespace UmlDesigner
                         break;
                     }
                 }
-                if (_carentObject != null && _carentObject._figureType == FigureType.Arrow)
+                if (_carentObject != null)// && _carentObject._figureType == FigureType.Arrow)
                 {
                     _allFigurs.Remove(_carentObject);
                     _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -179,6 +182,71 @@ namespace UmlDesigner
             foreach (AbstractAllFigurs a in _allFigurs)
             {
                 a.Draw(_graphics);
+            }
+        }
+
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            string serialized = JsonConvert.SerializeObject(_allFigurs, Formatting.Indented,
+                new JsonSerializerSettings()
+                {
+                    TypeNameHandling = TypeNameHandling.Objects
+                });
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter writer = new StreamWriter(Convert.ToString(dialog.FileName), false))
+                {
+                    writer.WriteLine(serialized);
+                }
+            }
+        }
+
+        private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void Download_Click(object sender, EventArgs e)
+        {
+            string fileContainer = "";
+            OpenFileDialog dialog = new OpenFileDialog();
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamReader reader = new StreamReader(Convert.ToString(dialog.FileName)))
+                {
+                    fileContainer = reader.ReadToEnd();
+                }
+            }
+
+            List<AbstractAllFigurs> deserialized = JsonConvert.DeserializeObject<List<AbstractAllFigurs>>(fileContainer);
+
+            _allFigurs.Remove(_carentObject);
+            _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            _graphics = Graphics.FromImage(_mainBitmap);
+            _graphics.Clear(Color.White);
+
+            foreach (AbstractAllFigurs a in _allFigurs)
+            {
+                a.Draw(_graphics);
+            }
+            pictureBox1.Image = _mainBitmap;
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+        }
+
+        private void SaveImage_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                _mainBitmap.Save(dialog.FileName, ImageFormat.Png);
             }
         }
     }
