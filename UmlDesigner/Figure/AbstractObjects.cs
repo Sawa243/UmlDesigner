@@ -29,7 +29,7 @@ namespace UmlDesigner.Figure
             _action.Draw(graphics, _pen, GetPoints());
         }
 
-        public override bool IsItMe(Point point)
+        public override bool IsInclude(Point point)
         {
             int xMax;
             int xMin;

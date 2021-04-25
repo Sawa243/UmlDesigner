@@ -21,7 +21,7 @@ namespace UmlDesigner.Figure
         }
         protected abstract List<Point> GetPoints();
         public abstract void Draw(Graphics graphics);
-        public abstract bool IsItMe(Point point);
+        public abstract bool IsInclude(Point point);
         public abstract void Move(int deltaX, int deltaY);
     }
 }
