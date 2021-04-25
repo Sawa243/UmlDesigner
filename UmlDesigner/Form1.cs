@@ -16,7 +16,7 @@ namespace UmlDesigner
         public Graphics _graphics;
         Pen _pen = new Pen(Color.Red,4);
         List<Point> points = new List<Point>();
-        IFabric _fabric;
+        IFactory _factory;
         private AbstractAllFigurs _carentObject;
         private List<AbstractObjects> objectForm = new List<AbstractObjects>();
         private List<AbstractArrow> arrows = new List<AbstractArrow>();
@@ -34,14 +34,14 @@ namespace UmlDesigner
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
             comboBoxArrows.SelectedIndex = 1;
-            _fabric = new AssotiationFabric();
+            _factory = new AssotiationFactory();
         }
 
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             _IsClicked = true;
-            _carentObject = _fabric.GetElement(_pen);
+            _carentObject = _factory.GetElement(_pen);
             if (_carentObject != null)
             {
                 _carentObject.StartPoint = e.Location;
@@ -87,7 +87,7 @@ namespace UmlDesigner
             
             if (comboBoxArrows.SelectedIndex == 0)
             {
-                _fabric = new AssotiationFabric();
+                _factory = new AssotiationFactory();
             }
         }
 
@@ -95,7 +95,7 @@ namespace UmlDesigner
         {
             if (comboBoxForms.SelectedIndex==0)
             {
-                _fabric = new FormsClasFactory();
+                _factory = new FormsClasFactory();
             }
         }
     }

@@ -10,9 +10,9 @@ using UmlDesigner.Figure.Arrows;
 
 namespace UmlDesigner.Fabric
 {
-    public class RealizationFactory:IFabric
+    public class RealizationFactory : IFactory
     {
-        public AbstractArrow GetArrow(Pen pen)
+        public AbstractAllFigurs GetElement(Pen pen)
         {
             return new RealizationArrow(pen, new Drawing());
         }
