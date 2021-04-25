@@ -33,41 +33,62 @@ namespace UmlDesigner.Figure
         }
         public override bool IsItMe(Point point)
         {
-            int xMax;
-            int xMin;
-            int yMax;
-            int yMin;
+            int delta = 5;
 
-            if (StartPoint.X > EndPoint.X)
-            {
-                xMax = StartPoint.X;
-                xMin = EndPoint.X;
-            }
-            else
-            {
-                xMin = StartPoint.X;
-                xMax = EndPoint.X;
-            }
+            Point pointHead;
+            Point pointNext;
 
-            if (StartPoint.Y > EndPoint.Y)
+            for (int i = 0; i < GetPoints().Count - 1; i++)
             {
-                yMax = StartPoint.Y;
-                yMin = EndPoint.Y;
+                pointHead = (Point)GetPoints().ToArray().GetValue(i);
+                pointNext = (Point)GetPoints().ToArray().GetValue(i + 1);
+
+                if (pointHead.X >= pointNext.X
+                && pointHead.Y >= pointNext.Y)
+                {
+                    if (point.X >= pointNext.X - delta
+                    && point.X <= pointHead.X + delta
+                    && point.Y >= pointNext.Y - delta
+                    && point.Y <= pointHead.Y + delta)
+                    {
+                        return true;
+                    }
+                }
+                if (pointHead.X >= pointNext.X
+                && pointHead.Y <= pointNext.Y)
+                {
+                    if (point.X >= pointNext.X - delta
+                    && point.X <= pointHead.X + delta
+                    && point.Y >= pointHead.Y - delta
+                    && point.Y <= pointNext.Y + delta)
+                    {
+                        return true;
+                    }
+                }
+                if (pointHead.X <= pointNext.X
+                && pointHead.Y >= pointNext.Y)
+                {
+                    if (point.X >= pointHead.X - delta
+                    && point.X <= pointNext.X + delta
+                    && point.Y >= pointNext.Y - delta
+                    && point.Y <= pointHead.Y + delta)
+                    {
+                        return true;
+                    }
+                }
+                if (pointHead.X <= pointNext.X
+                && pointHead.Y <= pointNext.Y)
+                {
+                    if (point.X >= pointHead.X - delta
+                    && point.X <= pointNext.X + delta
+                    && point.Y >= pointHead.Y - delta
+                    && point.Y <= pointNext.Y + delta)
+                    {
+                        return true;
+                    }
+                }
             }
-            else
-            {
-                yMin = StartPoint.Y;
-                yMax = EndPoint.Y;
-            }
-            if (point.X <= xMax && point.X >= xMin
-             && point.Y <= yMax && point.Y >= yMin)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         public override void Move(int deltaX, int deltaY)
         {
