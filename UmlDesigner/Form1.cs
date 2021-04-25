@@ -92,7 +92,7 @@ namespace UmlDesigner
             {
                 if (_IsMove && _carentObject != null)
                 {
-                    _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y,_carentObject.StartPoint,_carentObject.EndPoint);
+                    _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y);
                     pointDelta = e.Location;
                     _carentObject.TextRedactor(_graphics,_pen,_carentObject.EndPoint);
                     buttonMove.Text = "Move: on";
@@ -197,7 +197,7 @@ namespace UmlDesigner
             _carentObject.Text = "";
             foreach (AbstractAllFigurs a in _allFigurs)
             {
-                if (a.MyCoordinates(e.Location))
+                if (a.IsInclude(e.Location))
                 {
                     _carentObject = a;
                     break;
