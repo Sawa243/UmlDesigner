@@ -67,10 +67,5 @@ namespace UmlDesigner.Figure
                 return false;
             }
         }
-        public override void Move(int deltaX, int deltaY)
-        {
-            StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
-            EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
-        }
     }
 }
