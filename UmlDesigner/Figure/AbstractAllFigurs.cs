@@ -12,7 +12,7 @@ using UmlDesigner.Figure.Forms;
 
 namespace UmlDesigner.Figure
 {
-   public abstract class AbstractAllFigurs : ITextInForm
+    public abstract class AbstractAllFigurs : ITextInForm
     {
         protected IAction _action;
         protected Pen _pen;
@@ -27,7 +27,11 @@ namespace UmlDesigner.Figure
         protected abstract List<Point> GetPoints();
         public abstract void Draw(Graphics graphics);
         public abstract bool IsInclude(Point point);
-        public abstract void Move(int deltaX, int deltaY);
+        public void Move(int deltaX, int deltaY)
+        {
+            StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
+            EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
+        }
         public void TextRedactor(Graphics graphics, Pen pen, Point EndPoint)
         {
             Font font = new Font(Text, 23);
