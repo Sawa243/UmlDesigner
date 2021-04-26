@@ -8,21 +8,20 @@ using UmlDesigner.Figure;
 
 namespace UmlDesigner
 {
-    public partial class MainForm : Form
+    public partial class Form1 : Form
     {
         Bitmap _mainBitmap;
         Bitmap _tmpBitmap;
-        IFactory _factory;
         public Graphics _graphics;
-        bool _IsClicked = false;
-        bool _IsMove = false;
-        private Pen _pen = new Pen(Color.Red, 4);
+        Pen _pen = new Pen(Color.Red, 4);
+        IFactory _factory;
         private AbstractAllFigurs _carentObject;
         private List<AbstractAllFigurs> _allFigurs = new List<AbstractAllFigurs>();
-        private Point pointDelta;
+        bool _IsClicked = false;
+        bool _IsMove = false;
+        Point pointDelta;
 
-
-        public MainForm()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -40,11 +39,12 @@ namespace UmlDesigner
             _IsClicked = true;
             _pen = new Pen(colorDialog1.Color, trackBarSize.Value);
             _carentObject = _factory.GetElement(_pen);
+
             if (_IsMove)
             {
                 foreach (AbstractAllFigurs a in _allFigurs)
                 {
-                    if (a.IsInclude(e.Location))
+                    if (a.IsItMe(e.Location))
                     {
                         _carentObject = a;
                         break;
@@ -60,7 +60,6 @@ namespace UmlDesigner
                     foreach (AbstractAllFigurs a in _allFigurs)
                     {
                         a.Draw(_graphics);
-                        a.TextRedactor(_graphics, _pen, a.EndPoint);
                     }
                     pictureBox1.Image = _mainBitmap;
                     pointDelta = e.Location;
@@ -78,15 +77,10 @@ namespace UmlDesigner
         {
             _IsClicked = false;
             _mainBitmap = _tmpBitmap;
-            _allFigurs.Add(_carentObject); /*надо фиксить**/
-                if(_allFigurs.Count > 0 && e.Location == _carentObject.StartPoint)
-                { 
-                    _allFigurs.Remove(_carentObject);
-                }
+            _allFigurs.Add(_carentObject);
             if (_IsMove)
-            {
-                _IsMove = false;
-                buttonMove.Text = "Move: off";
+            { _IsMove = false;
+              buttonMove.Text = "Move:of";
             }
         }
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -99,15 +93,14 @@ namespace UmlDesigner
                 {
                     _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y);
                     pointDelta = e.Location;
-                    _carentObject.TextRedactor(_graphics, _pen, _carentObject.EndPoint);
-                    buttonMove.Text = "Move: on";
+                    buttonMove.Text = "Move:on";
                 }
                 else
                 {
-                    buttonMove.Text = "Move: off";
+                    buttonMove.Text = "Move:of";
                     _carentObject.EndPoint = e.Location;
                 }
-                _carentObject.Draw(_graphics);  
+                _carentObject.Draw(_graphics);
             }
             pictureBox1.Image = _tmpBitmap;
             GC.Collect();
@@ -150,9 +143,9 @@ namespace UmlDesigner
         {
             switch (comboBoxForms.SelectedIndex)
             {
-                case 1:
-                    _factory = new FormsClasFactory();
-                    break;
+                case 1 :
+                _factory = new FormsClasFactory();
+            break;
                 case 0:
                     _factory = new FormBlockFactory();
                     break;
@@ -168,7 +161,7 @@ namespace UmlDesigner
         {
             _carentObject = null;
             _IsMove = true;
-            buttonMove.Text = "Move: on";
+            buttonMove.Text = "Move:on";
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -182,35 +175,13 @@ namespace UmlDesigner
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            if (_allFigurs.Count > 0)
-            {
-                _allFigurs.RemoveAt(_allFigurs.Count - 1);
-                _graphics = Graphics.FromImage(_mainBitmap);
-                _graphics.Clear(Color.White);
-                pictureBox1.Image = _mainBitmap;
-                foreach (AbstractAllFigurs a in _allFigurs)
-                {
-                    a.Draw(_graphics);
-                    a.TextRedactor(_graphics, _pen, a.EndPoint);
-                }
-            }
-        }
-
-        private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            _carentObject.Text = "";
+            _allFigurs.RemoveAt(_allFigurs.Count - 1);
+            _graphics = Graphics.FromImage(_mainBitmap);
+            _graphics.Clear(Color.White);
+            pictureBox1.Image = _mainBitmap;
             foreach (AbstractAllFigurs a in _allFigurs)
             {
-                if (a.IsInclude(e.Location))
-                {
-                    _carentObject = a;
-                    break;
-                }
-            }
-            if (_carentObject.EndPoint != new Point(0, 0) && _carentObject._figureType == 0)
-            {
-                _carentObject.Text = _carentObject.Text + " " + Microsoft.VisualBasic.Interaction.InputBox("Введите текст:");
-                _carentObject.TextRedactor(_graphics, _pen, _carentObject.EndPoint);
+                a.Draw(_graphics);
             }
         }
     }
