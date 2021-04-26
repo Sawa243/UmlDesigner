@@ -8,7 +8,7 @@ using UmlDesigner.Figure;
 
 namespace UmlDesigner
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         Bitmap _mainBitmap;
         Bitmap _tmpBitmap;
@@ -22,7 +22,7 @@ namespace UmlDesigner
         private Point pointDelta;
 
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
