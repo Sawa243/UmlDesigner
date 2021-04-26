@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using UmlDesigner.Figure.Forms;
 using UmlDesigner.Figure.Arrows;
-using UmlDesigner.Figure.Action;
+using UmlDesigner.Figure;
 using System.Drawing;
 using System.Collections;
 
@@ -23,7 +23,7 @@ namespace UmlDesigner.Tests.Figure
         }
 
         [TestCaseSource(typeof(IsIncludeTests_WhenSetFormAndPoint_ShoudReturnBoolTestSource))]
-        public void IsIncludeTests_WhenSetFormAndPoint_ShoudReturnBool(FormClass form, Point point, bool expected)
+        public void IsInclude_WhenSetFormAndPoint_ShoudReturnBool(FormClass form, Point point, bool expected)
         {
             bool actual = form.IsInclude(point);
 
@@ -78,4 +78,6 @@ namespace UmlDesigner.Tests.Figure
         }
 
     }
+
+
 }
