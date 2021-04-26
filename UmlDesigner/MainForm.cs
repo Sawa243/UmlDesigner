@@ -78,7 +78,10 @@ namespace UmlDesigner
         {
             _IsClicked = false;
             _mainBitmap = _tmpBitmap;
+            if(!(e.Button == MouseButtons.Right))
+            {
             _allFigurs.Add(_carentObject); /*надо фиксить**/
+            }
                 if(_allFigurs.Count > 0 && e.Location == _carentObject.StartPoint)
                 { 
                     _allFigurs.Remove(_carentObject);
@@ -196,21 +199,24 @@ namespace UmlDesigner
             }
         }
 
-        private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            _carentObject.Text = "";
-            foreach (AbstractAllFigurs a in _allFigurs)
+            if (e.Button == MouseButtons.Right)
             {
-                if (a.IsInclude(e.Location))
+                _carentObject.Text = "";
+                foreach (AbstractAllFigurs a in _allFigurs)
                 {
-                    _carentObject = a;
-                    break;
+                    if (a.IsInclude(e.Location))
+                    {
+                        _carentObject = a;
+                        break;
+                    }
                 }
-            }
-            if (_carentObject.EndPoint != new Point(0, 0) && _carentObject._figureType == 0)
-            {
-                _carentObject.Text = _carentObject.Text + " " + Microsoft.VisualBasic.Interaction.InputBox("Введите текст:");
-                _carentObject.TextRedactor(_graphics, _pen, _carentObject.EndPoint);
+                if (_carentObject.EndPoint != new Point(0, 0) && _carentObject._figureType == 0)
+                {
+                    _carentObject.Text = _carentObject.Text + " " + Microsoft.VisualBasic.Interaction.InputBox("Введите текст:");
+                    _carentObject.TextRedactor(_graphics, _pen, _carentObject.EndPoint);
+                }
             }
         }
     }
