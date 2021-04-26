@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using UmlDesigner.Figure.Action;
 
 namespace UmlDesigner.Figure.Forms
@@ -20,6 +15,11 @@ namespace UmlDesigner.Figure.Forms
             _pen = pen;
             Color = _pen.Color;
             Width = _pen.Width;
+        }
+        public override void Draw(Graphics graphics)
+        {
+            _action.Draw(graphics, _pen, GetPoints());
+            StartPoint = new Point(EndPoint.X + 150, EndPoint.Y + 200);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -6,19 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UmlDesigner.Figure.Action;
+using UmlDesigner.Figure.Forms;
 
 namespace UmlDesigner.Figure
 {
-   public abstract class AbstractAllFigurs
+    public abstract class AbstractAllFigurs : ITextInForm
     {
         protected IAction _action;
-
-        internal Pen _pen;
-
-        public FigureType _figureType;
+        protected Pen _pen;
+        public int _figureType;
+        public string Text { get; set; }
         public Color Color { get; set; }
         public float Width { get; set; }
-        public CustomLineCap Cap { get; set; }
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
 
@@ -28,52 +27,75 @@ namespace UmlDesigner.Figure
         }
 
         protected abstract List<Point> GetPoints();
-        public abstract void  Draw(Graphics graphics);
-
-        public bool DefineFigure(Point point)
+        public abstract void Draw(Graphics graphics);
+        public bool IsInclude(Point point)
         {
-            int xMax;
-            int xMin;
-            int yMax;
-            int yMin;
+            int delta = 5;
+            Point pointHead;
+            Point pointNext;
 
-            if (StartPoint.X > EndPoint.X)
+            for (int i = 0; i < GetPoints().Count - 1; i++)
             {
-                xMax = StartPoint.X;
-                xMin = EndPoint.X;
-            }
-            else
-            {
-                xMin = StartPoint.X;
-                xMax = EndPoint.X;
-            }
+                pointHead = (Point)GetPoints().ToArray().GetValue(i);
+                pointNext = (Point)GetPoints().ToArray().GetValue(i + 1);
 
-            if (StartPoint.Y > EndPoint.Y)
-            {
-                yMax = StartPoint.Y;
-                yMin = EndPoint.Y;
+                if (pointHead.X >= pointNext.X
+                && pointHead.Y >= pointNext.Y)
+                {
+                    if (point.X >= pointNext.X - delta
+                    && point.X <= pointHead.X + delta
+                    && point.Y >= pointNext.Y - delta
+                    && point.Y <= pointHead.Y + delta)
+                    {
+                        return true;
+                    }
+                }
+                if (pointHead.X >= pointNext.X
+                && pointHead.Y <= pointNext.Y)
+                {
+                    if (point.X >= pointNext.X - delta
+                    && point.X <= pointHead.X + delta
+                    && point.Y >= pointHead.Y - delta
+                    && point.Y <= pointNext.Y + delta)
+                    {
+                        return true;
+                    }
+                }
+                if (pointHead.X <= pointNext.X
+                && pointHead.Y >= pointNext.Y)
+                {
+                    if (point.X >= pointHead.X - delta
+                    && point.X <= pointNext.X + delta
+                    && point.Y >= pointNext.Y - delta
+                    && point.Y <= pointHead.Y + delta)
+                    {
+                        return true;
+                    }
+                }
+                if (pointHead.X <= pointNext.X
+                && pointHead.Y <= pointNext.Y)
+                {
+                    if (point.X >= pointHead.X - delta
+                    && point.X <= pointNext.X + delta
+                    && point.Y >= pointHead.Y - delta
+                    && point.Y <= pointNext.Y + delta)
+                    {
+                        return true;
+                    }
+                }
             }
-            else
-            {
-                yMin = StartPoint.Y;
-                yMax = EndPoint.Y;
-            }
-            if (point.X <= xMax && point.X >= xMin
-             && point.Y <= yMax && point.Y >= yMin)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
-
         public void Move(int deltaX, int deltaY)
         {
             StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
             EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
         }
-
+        public void TextRedactor(Graphics graphics, Pen pen, Point EndPoint)
+        {
+            Font font = new Font(Text, 23);
+            RectangleF PlaceToWrite = new RectangleF(EndPoint.X + 5, EndPoint.Y + 55, 140, 140);
+            graphics.DrawString(Text, font, pen.Brush, PlaceToWrite);
+        }
     }
 }

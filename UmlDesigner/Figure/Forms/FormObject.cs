@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using UmlDesigner.Figure.Action;
 
 namespace UmlDesigner.Figure.Forms
@@ -28,6 +23,7 @@ namespace UmlDesigner.Figure.Forms
             Font font = new Font(_nameForm, 23);
             RectangleF Name = new RectangleF(EndPoint.X + 5, EndPoint.Y + 5, 150, 200);
             graphics.DrawString(_nameForm, font, _pen.Brush, Name);
+            StartPoint = new Point(EndPoint.X + 150, EndPoint.Y + 200);
         }
     }
 }
