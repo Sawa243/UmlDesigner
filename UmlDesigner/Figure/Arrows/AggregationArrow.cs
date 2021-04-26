@@ -8,12 +8,17 @@ namespace UmlDesigner.Figure.Arrows
 {
     class AggregationArrow:AbstractArrow
     {
+        public AggregationArrow()
+        {
+
+        }
         public AggregationArrow(Pen pen, IAction action)
         {
             _action = action;
             _pen = pen;
             _pen.CustomEndCap = GetCustomLineCap();
-
+            Color = _pen.Color;
+            Width = _pen.Width;
         }
         private CustomLineCap GetCustomLineCap()
         {

@@ -11,11 +11,17 @@ namespace UmlDesigner.Figure.Arrows
 {
     class InheritanceArrow: AbstractArrow
     {
+        public InheritanceArrow()
+        {
+
+        }
         public InheritanceArrow(Pen pen, IAction action)
         {
             _action = action;
             _pen = pen;
             _pen.CustomEndCap = GetCustomLineCup();
+            Color = _pen.Color;
+            Width = _pen.Width;
         }
         private CustomLineCap GetCustomLineCup()
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 using UmlDesigner.Fabric;
@@ -96,7 +97,7 @@ namespace UmlDesigner
                     pointDelta = e.Location;
                     //buttonMove.Text = "Move:on";
                 }
-                else
+                else if (!(_isMove))
                 {
                     _carentObject.EndPoint = e.Location;
                 }
@@ -191,7 +192,8 @@ namespace UmlDesigner
             string serialized = JsonConvert.SerializeObject(_allFigurs, Formatting.Indented,
                 new JsonSerializerSettings()
                 {
-                    TypeNameHandling = TypeNameHandling.Objects
+                    TypeNameHandling = TypeNameHandling.Objects,
+                    //NullValueHandling = NullValueHandling.Ignore,
                 });
 
             SaveFileDialog dialog = new SaveFileDialog();
@@ -222,15 +224,22 @@ namespace UmlDesigner
                 }
             }
 
-            List<AbstractAllFigurs> deserialized = JsonConvert.DeserializeObject<List<AbstractAllFigurs>>(fileContainer);
+            List<AbstractAllFigurs> deserialized = JsonConvert.DeserializeObject<List<AbstractAllFigurs>>(fileContainer,
+                new JsonSerializerSettings()
+                    {
+                        TypeNameHandling = TypeNameHandling.Objects,
+                        NullValueHandling = NullValueHandling.Ignore,
+                        });
 
-            _allFigurs.Remove(_carentObject);
+            
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
 
-            foreach (AbstractAllFigurs a in _allFigurs)
+            foreach (AbstractAllFigurs a in deserialized)
             {
+                
+                a._pen = new Pen(a.Color, a.Width);
                 a.Draw(_graphics);
             }
             pictureBox1.Image = _mainBitmap;

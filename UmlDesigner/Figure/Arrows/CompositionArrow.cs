@@ -11,12 +11,18 @@ namespace UmlDesigner.Figure.Arrows
 {
     class CompositionArrow:AbstractArrow
     {
+        public CompositionArrow()
+        {
+
+        }
         public CompositionArrow(Pen pen, IAction action)
         {
             _action = action;
             _pen = pen;
             _pen.CustomEndCap = GetCustomLineCap();
-            
+            Color = _pen.Color;
+            Width = _pen.Width;
+
         }
         private CustomLineCap GetCustomLineCap()
         {

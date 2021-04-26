@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,13 @@ namespace UmlDesigner.Figure
    public abstract class AbstractAllFigurs
     {
         protected IAction _action;
-        protected Pen _pen;
+
+        internal Pen _pen;
+
         public FigureType _figureType;
+        public Color Color { get; set; }
+        public float Width { get; set; }
+        public CustomLineCap Cap { get; set; }
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
 
