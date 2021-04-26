@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using UmlDesigner.Figure.Action;
 
@@ -12,7 +11,7 @@ namespace UmlDesigner.Figure
         public AbstractObjects()
         {
             _action = new DrawForms();
-            _figureType = 0;
+            FigureType _figureType = FigureType.Element;
         }
         protected override List<Point> GetPoints()
         {
