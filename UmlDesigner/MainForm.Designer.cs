@@ -54,11 +54,13 @@ namespace UmlDesigner
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(132, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(198, 14);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1256, 724);
+            this.pictureBox1.Size = new System.Drawing.Size(1884, 1114);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDoubleClick);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
@@ -66,21 +68,23 @@ namespace UmlDesigner
             // trackBarSize
             // 
             this.trackBarSize.LargeChange = 2;
-            this.trackBarSize.Location = new System.Drawing.Point(32, 314);
+            this.trackBarSize.Location = new System.Drawing.Point(48, 483);
+            this.trackBarSize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.trackBarSize.Maximum = 30;
             this.trackBarSize.Minimum = 2;
             this.trackBarSize.Name = "trackBarSize";
             this.trackBarSize.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBarSize.Size = new System.Drawing.Size(45, 145);
+            this.trackBarSize.Size = new System.Drawing.Size(69, 223);
             this.trackBarSize.TabIndex = 1;
             this.trackBarSize.Value = 6;
             this.trackBarSize.Scroll += new System.EventHandler(this.trackBarSize_Scroll);
             // 
             // buttonColor
             // 
-            this.buttonColor.Location = new System.Drawing.Point(5, 465);
+            this.buttonColor.Location = new System.Drawing.Point(8, 715);
+            this.buttonColor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonColor.Name = "buttonColor";
-            this.buttonColor.Size = new System.Drawing.Size(100, 19);
+            this.buttonColor.Size = new System.Drawing.Size(150, 29);
             this.buttonColor.TabIndex = 2;
             this.buttonColor.Text = "Color";
             this.buttonColor.UseVisualStyleBackColor = true;
@@ -96,9 +100,10 @@ namespace UmlDesigner
             "Composition ",
             "Inheritance ",
             "Realization "});
-            this.comboBoxArrows.Location = new System.Drawing.Point(5, 45);
+            this.comboBoxArrows.Location = new System.Drawing.Point(8, 69);
+            this.comboBoxArrows.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxArrows.Name = "comboBoxArrows";
-            this.comboBoxArrows.Size = new System.Drawing.Size(121, 28);
+            this.comboBoxArrows.Size = new System.Drawing.Size(180, 38);
             this.comboBoxArrows.TabIndex = 3;
             this.comboBoxArrows.SelectedIndexChanged += new System.EventHandler(this.comboBoxArrows_SelectedIndexChanged);
             // 
@@ -111,9 +116,10 @@ namespace UmlDesigner
             "Class",
             "Interface",
             "Object"});
-            this.comboBoxForms.Location = new System.Drawing.Point(5, 123);
+            this.comboBoxForms.Location = new System.Drawing.Point(8, 189);
+            this.comboBoxForms.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxForms.Name = "comboBoxForms";
-            this.comboBoxForms.Size = new System.Drawing.Size(121, 28);
+            this.comboBoxForms.Size = new System.Drawing.Size(180, 38);
             this.comboBoxForms.TabIndex = 4;
             this.comboBoxForms.SelectedIndexChanged += new System.EventHandler(this.comboBoxForms_SelectedIndexChanged);
             // 
@@ -121,9 +127,10 @@ namespace UmlDesigner
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 12);
+            this.label1.Location = new System.Drawing.Point(36, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 30);
+            this.label1.Size = new System.Drawing.Size(119, 45);
             this.label1.TabIndex = 5;
             this.label1.Text = "Arrows";
             // 
@@ -131,18 +138,20 @@ namespace UmlDesigner
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 90);
+            this.label2.Location = new System.Drawing.Point(36, 138);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 30);
+            this.label2.Size = new System.Drawing.Size(108, 45);
             this.label2.TabIndex = 6;
             this.label2.Text = "Forms";
             // 
             // buttonClear
             // 
             this.buttonClear.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClear.Location = new System.Drawing.Point(5, 161);
+            this.buttonClear.Location = new System.Drawing.Point(8, 248);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(121, 45);
+            this.buttonClear.Size = new System.Drawing.Size(182, 69);
             this.buttonClear.TabIndex = 7;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -151,9 +160,10 @@ namespace UmlDesigner
             // buttonOpen
             // 
             this.buttonOpen.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOpen.Location = new System.Drawing.Point(1144, 771);
+            this.buttonOpen.Location = new System.Drawing.Point(1716, 1186);
+            this.buttonOpen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(101, 39);
+            this.buttonOpen.Size = new System.Drawing.Size(152, 60);
             this.buttonOpen.TabIndex = 9;
             this.buttonOpen.Text = "Open ";
             this.buttonOpen.UseVisualStyleBackColor = true;
@@ -161,9 +171,10 @@ namespace UmlDesigner
             // buttonSave
             // 
             this.buttonSave.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(1251, 771);
+            this.buttonSave.Location = new System.Drawing.Point(1876, 1186);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(101, 39);
+            this.buttonSave.Size = new System.Drawing.Size(152, 60);
             this.buttonSave.TabIndex = 10;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -171,9 +182,10 @@ namespace UmlDesigner
             // buttonBack
             // 
             this.buttonBack.Font = new System.Drawing.Font("Mongolian Baiti", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBack.Location = new System.Drawing.Point(5, 212);
+            this.buttonBack.Location = new System.Drawing.Point(8, 326);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(121, 45);
+            this.buttonBack.Size = new System.Drawing.Size(182, 69);
             this.buttonBack.TabIndex = 11;
             this.buttonBack.Text = "Delete last";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -182,9 +194,10 @@ namespace UmlDesigner
             // buttonMove
             // 
             this.buttonMove.Font = new System.Drawing.Font("Mongolian Baiti", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMove.Location = new System.Drawing.Point(5, 263);
+            this.buttonMove.Location = new System.Drawing.Point(8, 405);
+            this.buttonMove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonMove.Name = "buttonMove";
-            this.buttonMove.Size = new System.Drawing.Size(121, 45);
+            this.buttonMove.Size = new System.Drawing.Size(182, 69);
             this.buttonMove.TabIndex = 12;
             this.buttonMove.Text = "Move";
             this.buttonMove.UseVisualStyleBackColor = true;
@@ -192,10 +205,9 @@ namespace UmlDesigner
             // 
             // Download
             // 
-            this.Download.Location = new System.Drawing.Point(64, 647);
-            this.Download.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Download.Location = new System.Drawing.Point(96, 995);
             this.Download.Name = "Download";
-            this.Download.Size = new System.Drawing.Size(63, 28);
+            this.Download.Size = new System.Drawing.Size(94, 43);
             this.Download.TabIndex = 13;
             this.Download.Text = "Download";
             this.Download.UseVisualStyleBackColor = true;
@@ -203,10 +215,9 @@ namespace UmlDesigner
             // 
             // Save
             // 
-            this.Save.Location = new System.Drawing.Point(5, 647);
-            this.Save.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Save.Location = new System.Drawing.Point(8, 995);
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(63, 27);
+            this.Save.Size = new System.Drawing.Size(94, 42);
             this.Save.TabIndex = 14;
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = true;
@@ -224,19 +235,20 @@ namespace UmlDesigner
             // 
             // SaveImage
             // 
-            this.SaveImage.Location = new System.Drawing.Point(5, 619);
+            this.SaveImage.Location = new System.Drawing.Point(8, 952);
+            this.SaveImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SaveImage.Name = "SaveImage";
-            this.SaveImage.Size = new System.Drawing.Size(121, 23);
+            this.SaveImage.Size = new System.Drawing.Size(182, 35);
             this.SaveImage.TabIndex = 15;
             this.SaveImage.Text = "Save as image";
             this.SaveImage.UseVisualStyleBackColor = true;
             this.SaveImage.Click += new System.EventHandler(this.SaveImage_Click);
             // 
-            // Form1
+            // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 682);
+            this.ClientSize = new System.Drawing.Size(1924, 1049);
             this.Controls.Add(this.SaveImage);
             this.Controls.Add(this.Save);
             this.Controls.Add(this.Download);
@@ -253,7 +265,8 @@ namespace UmlDesigner
             this.Controls.Add(this.trackBarSize);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

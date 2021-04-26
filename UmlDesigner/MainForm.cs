@@ -4,7 +4,12 @@ using System.Drawing;
 using System.Windows.Forms;
 using UmlDesigner.Fabric;
 using UmlDesigner.Figure;
-
+using System.IO;
+using Newtonsoft;
+using System.Xml;
+using Newtonsoft.Json;
+using Formatting = Newtonsoft.Json.Formatting;
+using System.Drawing.Imaging;
 
 namespace UmlDesigner
 {
@@ -108,7 +113,7 @@ namespace UmlDesigner
                     buttonMove.Text = "Move: off";
                     _carentObject.EndPoint = e.Location;
                 }
-                _carentObject.Draw(_graphics);  
+                _carentObject.Draw(_graphics);
             }
             pictureBox1.Image = _tmpBitmap;
             GC.Collect();
@@ -171,7 +176,6 @@ namespace UmlDesigner
             _IsMove = true;
             buttonMove.Text = "Move: on";
         }
-
         private void buttonClear_Click(object sender, EventArgs e)
         {
             _graphics = Graphics.FromImage(_mainBitmap);
@@ -180,7 +184,6 @@ namespace UmlDesigner
             pictureBox1.Image = _tmpBitmap;
             _allFigurs.Clear();
         }
-
         private void buttonBack_Click(object sender, EventArgs e)
         {
             if (_allFigurs.Count > 0)
@@ -196,7 +199,6 @@ namespace UmlDesigner
                 }
             }
         }
-
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             _carentObject.Text = "";
@@ -214,9 +216,6 @@ namespace UmlDesigner
                 _carentObject.TextRedactor(_graphics, _pen, _carentObject.EndPoint);
             }
         }
-    }
-}
-
         private void Save_Click(object sender, EventArgs e)
         {
             string serialized = JsonConvert.SerializeObject(_allFigurs, Formatting.Indented,
@@ -235,12 +234,10 @@ namespace UmlDesigner
                 }
             }
         }
-
         private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
         }
-
         private void Download_Click(object sender, EventArgs e)
         {
             string fileContainer = "";
@@ -256,30 +253,28 @@ namespace UmlDesigner
 
             List<AbstractAllFigurs> deserialized = JsonConvert.DeserializeObject<List<AbstractAllFigurs>>(fileContainer,
                 new JsonSerializerSettings()
-                    {
-                        TypeNameHandling = TypeNameHandling.Objects,
-                        NullValueHandling = NullValueHandling.Ignore,
-                        });
+                {
+                    TypeNameHandling = TypeNameHandling.Objects,
+                    NullValueHandling = NullValueHandling.Ignore,
+                });
 
-            
+
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
 
             foreach (AbstractAllFigurs a in deserialized)
             {
-                
+
                 a._pen = new Pen(a.Color, a.Width);
                 a.Draw(_graphics);
             }
             pictureBox1.Image = _mainBitmap;
 
         }
-
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
         }
-
         private void SaveImage_Click(object sender, EventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog();
