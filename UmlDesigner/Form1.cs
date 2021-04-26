@@ -61,6 +61,7 @@ namespace UmlDesigner
                     foreach (AbstractAllFigurs a in _allFigurs)
                     {
                         a.Draw(_graphics);
+                        a.TextRedactor(_graphics, _pen, a.EndPoint);
                     }
                     pictureBox1.Image = _mainBitmap;
                     pointDelta = e.Location;
@@ -78,11 +79,7 @@ namespace UmlDesigner
         {
             _IsClicked = false;
             _mainBitmap = _tmpBitmap;
-
-
-           //_allFigurs.Add(_carentObject);
-
-
+            _allFigurs.Add(_carentObject);
             if (_IsMove)
             { _IsMove = false;
               buttonMove.Text = "Move:of";
@@ -106,7 +103,7 @@ namespace UmlDesigner
                     buttonMove.Text = "Move:of";
                     _carentObject.EndPoint = e.Location;
                 }
-                _carentObject.Draw(_graphics);
+                _carentObject.Draw(_graphics);  
             }
             pictureBox1.Image = _tmpBitmap;
             GC.Collect();
@@ -197,7 +194,6 @@ namespace UmlDesigner
 
         private void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
             _carentObject.Text = "";
             foreach (AbstractAllFigurs a in _allFigurs)
             {
