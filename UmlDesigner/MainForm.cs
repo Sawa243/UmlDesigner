@@ -9,11 +9,13 @@ using Newtonsoft.Json;
 using Formatting = Newtonsoft.Json.Formatting;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
+using UmlDesigner.Figure.Arrows;
 
 namespace UmlDesigner
 {
     public partial class MainForm : Form
     {
+        public GraphicsPath HPath = new GraphicsPath();
         public Graphics graphics;
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
@@ -86,7 +88,7 @@ namespace UmlDesigner
             {
             _allFigurs.Add(_carentObject); /*надо фиксить**/
             }
-                if(_allFigurs.Count > 0 && e.Location == _carentObject.StartPoint)
+                if(_allFigurs.Count > 0 && e.Location == _carentObject.StartPoint && _carentObject != null)
                 { 
                     _allFigurs.Remove(_carentObject);
                 }
@@ -258,7 +260,7 @@ namespace UmlDesigner
             List<AbstractAllFigurs> deserialized = JsonConvert.DeserializeObject<List<AbstractAllFigurs>>(fileContainer,
                 new JsonSerializerSettings()
                 {
-                    //NullValueHandling = NullValueHandling.Ignore,
+                    NullValueHandling = NullValueHandling.Ignore,
                     TypeNameHandling = TypeNameHandling.Objects,
                 });
 
@@ -270,6 +272,8 @@ namespace UmlDesigner
             {
                 a.HPath = new GraphicsPath();
                 a._pen = new Pen(a.Color, a.Width);
+                a.GetCustomLineCap(HPath);
+                a._pen.CustomEndCap = a.GetCustomLineCap(HPath);
                 a.Draw(graphics);
                 a.TextRedactor(graphics, _pen, a.EndPoint);
                 _allFigurs.Add(a);

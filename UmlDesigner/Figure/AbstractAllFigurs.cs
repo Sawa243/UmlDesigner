@@ -10,10 +10,13 @@ namespace UmlDesigner.Figure
 {
     public abstract class AbstractAllFigurs : ITextInForm,ICap
     {
-        public GraphicsPath HPath = new GraphicsPath();
         public FigureType figureType;
         protected IAction _action;
+        protected ICap _iCap;
+        internal GraphicsPath HPath = new GraphicsPath();
         internal Pen _pen;
+
+        
         public string Text { get; set; }
         public Color Color { get; set; }
         public float Width { get; set; }

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using UmlDesigner.Figure.Action;
+using UmlDesigner.Figure.Arrows;
 
 namespace UmlDesigner.Figure
 {
@@ -12,6 +13,7 @@ namespace UmlDesigner.Figure
             _action = new Drawing();
             FigureType figureType = FigureType.Arrow;
         }
+
         protected override List<Point> GetPoints()
         {
             List<Point> points = new List<Point>();
@@ -29,7 +31,8 @@ namespace UmlDesigner.Figure
 
         public override CustomLineCap GetCustomLineCap(GraphicsPath HPath)
         {
-            throw new System.NotImplementedException();
+               CustomLineCap compositeCup = _iCap.GetCustomLineCap(HPath);
+            return compositeCup;
         }
     }
 }

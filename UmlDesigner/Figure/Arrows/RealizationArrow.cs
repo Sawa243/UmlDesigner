@@ -22,7 +22,7 @@ namespace UmlDesigner.Figure.Arrows
         _pen.CustomEndCap = GetCustomLineCap(HPath);
         _pen.DashPattern = new float[] { 3f, 2f };
         Color = _pen.Color;
-        Width = _pen.Width;
+        Width = _pen.Width;  
         }
     }
 }

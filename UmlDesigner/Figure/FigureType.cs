@@ -9,6 +9,7 @@ namespace UmlDesigner.Figure
     public enum FigureType
     {
         Arrow = 0,
-        Element = 1
+        Element = 1,
+        RealizationArrow = 2
     }
 }
