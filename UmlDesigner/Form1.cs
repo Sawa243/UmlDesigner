@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using UmlDesigner.Fabric;
 using UmlDesigner.Figure;
-using UmlDesigner.Figure.Forms;
+
 
 namespace UmlDesigner
 {
@@ -12,14 +12,14 @@ namespace UmlDesigner
     {
         Bitmap _mainBitmap;
         Bitmap _tmpBitmap;
-        public Graphics _graphics;
-        Pen _pen = new Pen(Color.Red, 4);
         IFactory _factory;
-        private AbstractAllFigurs _carentObject;
-        private List<AbstractAllFigurs> _allFigurs = new List<AbstractAllFigurs>();
+        public Graphics _graphics;
         bool _IsClicked = false;
         bool _IsMove = false;
-        Point pointDelta;
+        private Pen _pen = new Pen(Color.Red, 4);
+        private AbstractAllFigurs _carentObject;
+        private List<AbstractAllFigurs> _allFigurs = new List<AbstractAllFigurs>();
+        private Point pointDelta;
 
 
         public Form1()
@@ -40,7 +40,6 @@ namespace UmlDesigner
             _IsClicked = true;
             _pen = new Pen(colorDialog1.Color, trackBarSize.Value);
             _carentObject = _factory.GetElement(_pen);
-
             if (_IsMove)
             {
                 foreach (AbstractAllFigurs a in _allFigurs)
@@ -79,7 +78,7 @@ namespace UmlDesigner
         {
             _IsClicked = false;
             _mainBitmap = _tmpBitmap;
-            _allFigurs.Add(_carentObject);
+            _allFigurs.Add(_carentObject); /*надо фиксить**/
             if (_IsMove)
             {
                 _IsMove = false;

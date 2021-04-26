@@ -1,13 +1,7 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using UmlDesigner.Figure.Action;
-using System.ComponentModel;
-using System.Data;
 using UmlDesigner.Figure.Forms;
 
 namespace UmlDesigner.Figure
@@ -29,7 +23,6 @@ namespace UmlDesigner.Figure
         public bool IsInclude(Point point)
         {
             int delta = 5;
-
             Point pointHead;
             Point pointNext;
 
