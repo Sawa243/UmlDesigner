@@ -5,14 +5,18 @@ using UmlDesigner.Figure.Action;
 namespace UmlDesigner.Figure.Arrows
 {
     public class RealizationArrow : AbstractArrow
-
     {
-    public RealizationArrow(Pen pen, IAction action)
-    {
+        public RealizationArrow()
+        {
+        }
+        public RealizationArrow(Pen pen, IAction action)
+        {
         _action = action;
         _pen = pen;
         _pen.CustomEndCap = GetCustomLineCup();
         _pen.DashPattern = new float[] { 3f, 2f };
+        Color = _pen.Color;
+        Width = _pen.Width;
         }
 
     private CustomLineCap GetCustomLineCup()

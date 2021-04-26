@@ -5,10 +5,15 @@ namespace UmlDesigner.Figure.Forms
 {
    public class FormClass : AbstractObjects
     {
+        public FormClass()
+        {
+        }
         public FormClass (Pen pen,IAction action)
         {
             _action = action;
             _pen = pen;
+            Color = _pen.Color;
+            Width = _pen.Width;
         }
         public override void Draw(Graphics graphics)
         {

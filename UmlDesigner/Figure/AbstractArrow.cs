@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using UmlDesigner.Figure.Action;
 
@@ -10,7 +9,7 @@ namespace UmlDesigner.Figure
         public AbstractArrow()
         {
             _action = new Drawing();
-            _figureType = 1;
+            FigureType figureType = FigureType.Arrow;
         }
         protected override List<Point> GetPoints()
         {

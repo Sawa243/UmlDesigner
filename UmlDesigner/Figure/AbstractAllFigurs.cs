@@ -8,15 +8,16 @@ namespace UmlDesigner.Figure
 {
     public abstract class AbstractAllFigurs : ITextInForm
     {
+        public FigureType figureType;
         protected IAction _action;
-        protected Pen _pen;
-        public int _figureType;
+        internal Pen _pen;
         public string Text { get; set; }
+        public Color Color { get; set; }
+        public float Width { get; set; }
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
         public AbstractAllFigurs()
         {
-            _action = new Drawing();
         }
         protected abstract List<Point> GetPoints();
         public abstract void Draw(Graphics graphics);
