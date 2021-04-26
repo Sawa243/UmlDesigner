@@ -8,6 +8,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Formatting = Newtonsoft.Json.Formatting;
 using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 
 namespace UmlDesigner
 {
@@ -257,10 +258,9 @@ namespace UmlDesigner
             List<AbstractAllFigurs> deserialized = JsonConvert.DeserializeObject<List<AbstractAllFigurs>>(fileContainer,
                 new JsonSerializerSettings()
                 {
+                    //NullValueHandling = NullValueHandling.Ignore,
                     TypeNameHandling = TypeNameHandling.Objects,
-                    NullValueHandling = NullValueHandling.Ignore,
                 });
-
 
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             graphics = Graphics.FromImage(_mainBitmap);
@@ -268,6 +268,7 @@ namespace UmlDesigner
 
             foreach (AbstractAllFigurs a in deserialized)
             {
+                a.HPath = new GraphicsPath();
                 a._pen = new Pen(a.Color, a.Width);
                 a.Draw(graphics);
                 a.TextRedactor(graphics, _pen, a.EndPoint);
