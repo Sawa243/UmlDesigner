@@ -79,6 +79,11 @@ namespace UmlDesigner
             _IsClicked = false;
             _mainBitmap = _tmpBitmap;
             _allFigurs.Add(_carentObject); /*надо фиксить**/
+            //foreach (AbstractAllFigurs a in _allFigurs)
+            //{
+            //    a.Draw(_graphics);
+            //    a.TextRedactor(_graphics, _pen, a.EndPoint);
+            //}
             if (_IsMove)
             {
                 _IsMove = false;
