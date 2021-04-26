@@ -7,7 +7,6 @@ namespace UmlDesigner.Figure.Forms
     {
         public FormBlock()
         {
-
         }
         public FormBlock(Pen pen, IAction action)
         {

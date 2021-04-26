@@ -11,7 +11,7 @@ namespace UmlDesigner.Figure
         public AbstractObjects()
         {
             _action = new DrawForms();
-            FigureType _figureType = FigureType.Element;
+            FigureType figureType = FigureType.Element;
         }
         protected override List<Point> GetPoints()
         {

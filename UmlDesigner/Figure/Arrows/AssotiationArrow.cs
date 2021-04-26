@@ -9,7 +9,6 @@ namespace UmlDesigner.Figure
     {
         public AssotiationArrow()
         {
-
         }
         public AssotiationArrow(Pen pen, IAction action)
         {

@@ -8,7 +8,6 @@ namespace UmlDesigner.Figure.Arrows
     {
         public RealizationArrow()
         {
-
         }
         public RealizationArrow(Pen pen, IAction action)
         {

@@ -8,7 +8,6 @@ namespace UmlDesigner.Figure.Arrows
     {
         public InheritanceArrow()
         {
-
         }
         public InheritanceArrow(Pen pen, IAction action)
         {

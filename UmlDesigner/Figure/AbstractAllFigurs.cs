@@ -1,10 +1,6 @@
 ﻿
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UmlDesigner.Figure.Action;
 using UmlDesigner.Figure.Forms;
 
@@ -12,9 +8,9 @@ namespace UmlDesigner.Figure
 {
     public abstract class AbstractAllFigurs : ITextInForm
     {
+        public FigureType figureType;
         protected IAction _action;
         internal Pen _pen;
-        public int _figureType;
         public string Text { get; set; }
         public Color Color { get; set; }
         public float Width { get; set; }
@@ -22,7 +18,6 @@ namespace UmlDesigner.Figure
         public Point EndPoint { get; set; }
         public AbstractAllFigurs()
         {
-            //_action = new Drawing();
         }
         protected abstract List<Point> GetPoints();
         public abstract void Draw(Graphics graphics);

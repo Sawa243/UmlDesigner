@@ -5,8 +5,6 @@ using System.Windows.Forms;
 using UmlDesigner.Fabric;
 using UmlDesigner.Figure;
 using System.IO;
-using Newtonsoft;
-using System.Xml;
 using Newtonsoft.Json;
 using Formatting = Newtonsoft.Json.Formatting;
 using System.Drawing.Imaging;
@@ -15,16 +13,16 @@ namespace UmlDesigner
 {
     public partial class MainForm : Form
     {
-        Bitmap _mainBitmap;
-        Bitmap _tmpBitmap;
-        IFactory _factory;
-        public Graphics _graphics;
-        bool _IsClicked = false;
-        bool _IsMove = false;
+        public Graphics graphics;
+        private Bitmap _mainBitmap;
+        private Bitmap _tmpBitmap;
+        private IFactory _factory;
+        private bool _IsClicked = false;
+        private bool _IsMove = false;
         private Pen _pen = new Pen(Color.Red, 4);
         private AbstractAllFigurs _carentObject;
         private List<AbstractAllFigurs> _allFigurs = new List<AbstractAllFigurs>();
-        private Point pointDelta;
+        private Point _pointDelta;
 
 
         public MainForm()
@@ -34,8 +32,8 @@ namespace UmlDesigner
         private void Form1_Load(object sender, EventArgs e)
         {
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            _graphics = Graphics.FromImage(_mainBitmap);
-            _graphics.Clear(Color.White);
+            graphics = Graphics.FromImage(_mainBitmap);
+            graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
             comboBoxArrows.SelectedIndex = 0;
             _factory = new AggregationFactory();
@@ -59,16 +57,16 @@ namespace UmlDesigner
                 {
                     _allFigurs.Remove(_carentObject);
                     _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    _graphics = Graphics.FromImage(_mainBitmap);
-                    _graphics.Clear(Color.White);
+                    graphics = Graphics.FromImage(_mainBitmap);
+                    graphics.Clear(Color.White);
 
                     foreach (AbstractAllFigurs a in _allFigurs)
                     {
-                        a.Draw(_graphics);
-                        a.TextRedactor(_graphics, _pen, a.EndPoint);
+                        a.Draw(graphics);
+                        a.TextRedactor(graphics, _pen, a.EndPoint);
                     }
                     pictureBox1.Image = _mainBitmap;
-                    pointDelta = e.Location;
+                    _pointDelta = e.Location;
                 }
             }
             else
@@ -100,14 +98,14 @@ namespace UmlDesigner
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-            _graphics = Graphics.FromImage(_tmpBitmap);
+            graphics = Graphics.FromImage(_tmpBitmap);
             if (_IsClicked)
             {
                 if (_IsMove && _carentObject != null)
                 {
-                    _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y);
-                    pointDelta = e.Location;
-                    _carentObject.TextRedactor(_graphics, _pen, _carentObject.EndPoint);
+                    _carentObject.Move(e.X - _pointDelta.X, e.Y - _pointDelta.Y);
+                    _pointDelta = e.Location;
+                    _carentObject.TextRedactor(graphics, _pen, _carentObject.EndPoint);
                     buttonMove.Text = "Move: on";
                 }
                 else
@@ -115,7 +113,7 @@ namespace UmlDesigner
                     buttonMove.Text = "Move: off";
                     _carentObject.EndPoint = e.Location;
                 }
-                _carentObject.Draw(_graphics);
+                _carentObject.Draw(graphics);
             }
             pictureBox1.Image = _tmpBitmap;
             GC.Collect();
@@ -180,8 +178,8 @@ namespace UmlDesigner
         }
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            _graphics = Graphics.FromImage(_mainBitmap);
-            _graphics.Clear(Color.White);
+            graphics = Graphics.FromImage(_mainBitmap);
+            graphics.Clear(Color.White);
             _tmpBitmap = _mainBitmap;
             pictureBox1.Image = _tmpBitmap;
             _allFigurs.Clear();
@@ -191,13 +189,13 @@ namespace UmlDesigner
             if (_allFigurs.Count > 0)
             {
                 _allFigurs.RemoveAt(_allFigurs.Count - 1);
-                _graphics = Graphics.FromImage(_mainBitmap);
-                _graphics.Clear(Color.White);
+                graphics = Graphics.FromImage(_mainBitmap);
+                graphics.Clear(Color.White);
                 pictureBox1.Image = _mainBitmap;
                 foreach (AbstractAllFigurs a in _allFigurs)
                 {
-                    a.Draw(_graphics);
-                    a.TextRedactor(_graphics, _pen, a.EndPoint);
+                    a.Draw(graphics);
+                    a.TextRedactor(graphics, _pen, a.EndPoint);
                 }
             }
         }
@@ -215,10 +213,10 @@ namespace UmlDesigner
                         break;
                     }
                 }
-                if (_carentObject.EndPoint != new Point(0, 0) && _carentObject._figureType == 0)
+                if (_carentObject.EndPoint != new Point(0, 0) && _carentObject.figureType == 0)
                 {
                     _carentObject.Text = _carentObject.Text + " " + Microsoft.VisualBasic.Interaction.InputBox("Введите текст:");
-                    _carentObject.TextRedactor(_graphics, _pen, _carentObject.EndPoint);
+                    _carentObject.TextRedactor(graphics, _pen, _carentObject.EndPoint);
                 }
             }
         }
@@ -228,7 +226,7 @@ namespace UmlDesigner
                 new JsonSerializerSettings()
                 {
                     TypeNameHandling = TypeNameHandling.Objects,
-                    //NullValueHandling = NullValueHandling.Ignore,
+                    //NullValueHandling = NullValueHandling.Ignore
                 });
 
             SaveFileDialog dialog = new SaveFileDialog();
@@ -242,7 +240,6 @@ namespace UmlDesigner
         }
         private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
         }
         private void Download_Click(object sender, EventArgs e)
         {
@@ -266,14 +263,15 @@ namespace UmlDesigner
 
 
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            _graphics = Graphics.FromImage(_mainBitmap);
-            _graphics.Clear(Color.White);
+            graphics = Graphics.FromImage(_mainBitmap);
+            graphics.Clear(Color.White);
 
             foreach (AbstractAllFigurs a in deserialized)
             {
-
                 a._pen = new Pen(a.Color, a.Width);
-                a.Draw(_graphics);
+                a.Draw(graphics);
+                a.TextRedactor(graphics, _pen, a.EndPoint);
+                _allFigurs.Add(a);
             }
             pictureBox1.Image = _mainBitmap;
 

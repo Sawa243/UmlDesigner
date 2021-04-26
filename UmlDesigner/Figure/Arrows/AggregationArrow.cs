@@ -8,7 +8,6 @@ namespace UmlDesigner.Figure.Arrows
     {
         public AggregationArrow()
         {
-
         }
         public AggregationArrow(Pen pen, IAction action)
         {

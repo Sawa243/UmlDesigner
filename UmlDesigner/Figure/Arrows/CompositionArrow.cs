@@ -8,7 +8,6 @@ namespace UmlDesigner.Figure.Arrows
     {
         public CompositionArrow()
         {
-
         }
         public CompositionArrow(Pen pen, IAction action)
         {
