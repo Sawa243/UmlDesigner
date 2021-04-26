@@ -20,7 +20,7 @@ namespace UmlDesigner
         bool _IsClicked = false;
         bool _IsMove = false;
         Point pointDelta;
-       
+
 
         public Form1()
         {
@@ -45,7 +45,7 @@ namespace UmlDesigner
             {
                 foreach (AbstractAllFigurs a in _allFigurs)
                 {
-                    if (a.MyCoordinates(e.Location))
+                    if (a.IsInclude(e.Location))
                     {
                         _carentObject = a;
                         break;
@@ -81,8 +81,9 @@ namespace UmlDesigner
             _mainBitmap = _tmpBitmap;
             _allFigurs.Add(_carentObject);
             if (_IsMove)
-            { _IsMove = false;
-              buttonMove.Text = "Move:of";
+            {
+                _IsMove = false;
+                buttonMove.Text = "Move: off";
             }
         }
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -93,14 +94,14 @@ namespace UmlDesigner
             {
                 if (_IsMove && _carentObject != null)
                 {
-                    _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y,_carentObject.StartPoint,_carentObject.EndPoint);
+                    _carentObject.Move(e.X - pointDelta.X, e.Y - pointDelta.Y);
                     pointDelta = e.Location;
-                    _carentObject.TextRedactor(_graphics,_pen,_carentObject.EndPoint);
-                    buttonMove.Text = "Move:on";
+                    _carentObject.TextRedactor(_graphics, _pen, _carentObject.EndPoint);
+                    buttonMove.Text = "Move: on";
                 }
                 else
                 {
-                    buttonMove.Text = "Move:of";
+                    buttonMove.Text = "Move: off";
                     _carentObject.EndPoint = e.Location;
                 }
                 _carentObject.Draw(_graphics);  
@@ -146,9 +147,9 @@ namespace UmlDesigner
         {
             switch (comboBoxForms.SelectedIndex)
             {
-                case 1 :
-                _factory = new FormsClasFactory();
-            break;
+                case 1:
+                    _factory = new FormsClasFactory();
+                    break;
                 case 0:
                     _factory = new FormBlockFactory();
                     break;
@@ -164,7 +165,7 @@ namespace UmlDesigner
         {
             _carentObject = null;
             _IsMove = true;
-            buttonMove.Text = "Move:on";
+            buttonMove.Text = "Move: on";
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -178,17 +179,17 @@ namespace UmlDesigner
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            if(_allFigurs.Count>0)
+            if (_allFigurs.Count > 0)
             {
-            _allFigurs.RemoveAt(_allFigurs.Count - 1);
-            _graphics = Graphics.FromImage(_mainBitmap);
-            _graphics.Clear(Color.White);
-            pictureBox1.Image = _mainBitmap;
-            foreach (AbstractAllFigurs a in _allFigurs)
-            {
-                a.Draw(_graphics);
-                a.TextRedactor(_graphics,_pen,a.EndPoint);
-            }
+                _allFigurs.RemoveAt(_allFigurs.Count - 1);
+                _graphics = Graphics.FromImage(_mainBitmap);
+                _graphics.Clear(Color.White);
+                pictureBox1.Image = _mainBitmap;
+                foreach (AbstractAllFigurs a in _allFigurs)
+                {
+                    a.Draw(_graphics);
+                    a.TextRedactor(_graphics, _pen, a.EndPoint);
+                }
             }
         }
 
@@ -197,16 +198,16 @@ namespace UmlDesigner
             _carentObject.Text = "";
             foreach (AbstractAllFigurs a in _allFigurs)
             {
-                if (a.MyCoordinates(e.Location))
+                if (a.IsInclude(e.Location))
                 {
                     _carentObject = a;
                     break;
                 }
             }
-            if (_carentObject.EndPoint != new Point(0,0) && _carentObject._figureType==0)
+            if (_carentObject.EndPoint != new Point(0, 0) && _carentObject._figureType == 0)
             {
-            _carentObject.Text = _carentObject.Text + " " + Microsoft.VisualBasic.Interaction.InputBox("Введите текст:");
-            _carentObject.TextRedactor(_graphics,_pen,_carentObject.EndPoint);
+                _carentObject.Text = _carentObject.Text + " " + Microsoft.VisualBasic.Interaction.InputBox("Введите текст:");
+                _carentObject.TextRedactor(_graphics, _pen, _carentObject.EndPoint);
             }
         }
     }

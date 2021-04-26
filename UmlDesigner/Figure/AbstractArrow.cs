@@ -10,7 +10,7 @@ using UmlDesigner.Figure.Action;
 
 namespace UmlDesigner.Figure
 {
-    public class AbstractArrow:AbstractAllFigurs
+    public class AbstractArrow : AbstractAllFigurs
     {
         public AbstractArrow()
         {

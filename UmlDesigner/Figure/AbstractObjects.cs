@@ -9,7 +9,7 @@ using UmlDesigner.Figure.Forms;
 
 namespace UmlDesigner.Figure
 {
-   public abstract class AbstractObjects: AbstractAllFigurs
+    public abstract class AbstractObjects : AbstractAllFigurs
     {
         protected string _nameForm;
         public AbstractObjects()
@@ -26,7 +26,7 @@ namespace UmlDesigner.Figure
         }
         public override void Draw(Graphics graphics)
         {
-            _action.Draw(graphics,_pen, GetPoints());
+            _action.Draw(graphics, _pen, GetPoints());
         }
     }
 }
