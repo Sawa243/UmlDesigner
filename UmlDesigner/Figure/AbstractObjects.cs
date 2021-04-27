@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using UmlDesigner.Figure.Action;
+using System.Drawing.Drawing2D;
 
 
 namespace UmlDesigner.Figure
@@ -23,6 +24,10 @@ namespace UmlDesigner.Figure
         public override void Draw(Graphics graphics)
         {
             _action.Draw(graphics, _pen, GetPoints());
+        }
+        public override CustomLineCap GetCustomLineCap(GraphicsPath HPath)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

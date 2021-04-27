@@ -1,26 +1,35 @@
 ﻿
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using UmlDesigner.Figure.Action;
+using UmlDesigner.Figure.Arrows;
 using UmlDesigner.Figure.Forms;
 
 namespace UmlDesigner.Figure
 {
-    public abstract class AbstractAllFigurs : ITextInForm
+    public abstract class AbstractAllFigurs : ITextInForm,ICap
     {
         public FigureType figureType;
         protected IAction _action;
+        protected ICap _iCap;
+        internal GraphicsPath HPath = new GraphicsPath();
         internal Pen _pen;
+
+        
         public string Text { get; set; }
         public Color Color { get; set; }
         public float Width { get; set; }
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
-        public AbstractAllFigurs()
-        {
-        }
-        protected abstract List<Point> GetPoints();
         public abstract void Draw(Graphics graphics);
+        public  PointF[] PointsHPath = new PointF[]
+            {
+            new PointF(0, 3),
+            new PointF(2, 0),
+            new PointF(-2, 0),
+            new PointF(0, 3)
+            };
         public bool IsInclude(Point point)
         {
             int delta = 5;
@@ -79,6 +88,9 @@ namespace UmlDesigner.Figure
             }
             return false;
         }
+        public AbstractAllFigurs()
+        {
+        }
         public void Move(int deltaX, int deltaY)
         {
             StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
@@ -90,5 +102,8 @@ namespace UmlDesigner.Figure
             RectangleF PlaceToWrite = new RectangleF(EndPoint.X + 5, EndPoint.Y + 55, 140, 140);
             graphics.DrawString(Text, font, pen.Brush, PlaceToWrite);
         }
+        public abstract CustomLineCap GetCustomLineCap(GraphicsPath HPath);
+        protected abstract List<Point> GetPoints();
+
     }
 }

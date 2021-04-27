@@ -86,6 +86,7 @@
     <Compile Include="Figure\Arrows\ArrowType.cs" />
     <Compile Include="Figure\Arrows\AssotiationArrow.cs" />
     <Compile Include="Figure\Arrows\CompositionArrow.cs" />
+    <Compile Include="Figure\Arrows\ICap.cs" />
     <Compile Include="Figure\Arrows\InheritanceArrow.cs" />
     <Compile Include="Figure\Arrows\RealizationArrow.cs" />
     <Compile Include="Figure\FigureType.cs" />

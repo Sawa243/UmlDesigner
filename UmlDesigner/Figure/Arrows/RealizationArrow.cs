@@ -9,29 +9,20 @@ namespace UmlDesigner.Figure.Arrows
         public RealizationArrow()
         {
         }
+        public override CustomLineCap GetCustomLineCap(GraphicsPath HPath)
+        {
+            HPath.AddLines(PointsHPath);
+            CustomLineCap compositeCup = new CustomLineCap(null, HPath);
+            return compositeCup;
+        }
         public RealizationArrow(Pen pen, IAction action)
         {
         _action = action;
         _pen = pen;
-        _pen.CustomEndCap = GetCustomLineCup();
+        _pen.CustomEndCap = GetCustomLineCap(HPath);
         _pen.DashPattern = new float[] { 3f, 2f };
         Color = _pen.Color;
-        Width = _pen.Width;
+        Width = _pen.Width;  
         }
-
-    private CustomLineCap GetCustomLineCup()
-    {
-        GraphicsPath hPath = new GraphicsPath();
-        PointF[] points = new PointF[]
-        {
-            new PointF(0, 3),
-            new PointF(2, 0),
-            new PointF(-2, 0),
-            new PointF(0, 3)
-        };
-        hPath.AddLines(points);
-        CustomLineCap compositeCup = new CustomLineCap(null, hPath);
-        return compositeCup;
-    }
     }
 }

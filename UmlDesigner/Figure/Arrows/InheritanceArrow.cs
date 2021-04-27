@@ -13,23 +13,16 @@ namespace UmlDesigner.Figure.Arrows
         {
             _action = action;
             _pen = pen;
-            _pen.CustomEndCap = GetCustomLineCup();
+            _pen.CustomEndCap = GetCustomLineCap(HPath);
             Color = _pen.Color;
             Width = _pen.Width;
         }
-        private CustomLineCap GetCustomLineCup()
+        public override CustomLineCap GetCustomLineCap(GraphicsPath HPath)
         {
-            GraphicsPath hPath = new GraphicsPath();
-            PointF[] points = new PointF[]
-            {
-                new PointF(0, 3),
-                new PointF(2, 0),
-                new PointF(-2, 0),
-                new PointF(0, 3)
-            };
-            hPath.AddLines(points);
-            CustomLineCap compositeCup = new CustomLineCap(null, hPath);
+            HPath.AddLines(PointsHPath);
+            CustomLineCap compositeCup = new CustomLineCap(null, HPath);
             return compositeCup;
         }
+        
     }
 }
